@@ -1,4 +1,4 @@
-How Can We Make AI Remember?
+# How Can We Make AI Remember?
 
 Recent developments in AI memory systems are pushing the boundaries of what's possible in human-AI interactions. Stanford's Human-Centered Artificial Intelligence (HAI) research has made significant strides in this area, particularly with their groundbreaking work on memory stream constructs.
 
@@ -20,13 +20,13 @@ I started with a basic UI to store and recall memories from a specified memory s
 
 The next experiment is a chat interface that embeds recalled memories into each prompt.  This produces an AI assistant that is more contextually aware and retains historical information about conversations.
 
-Here are more details about the experiment: [Chat With Memory](https://github.com/easystreetgames/Rob-Harris-Portfolio/blob/main/Chat%20With%20Memory.md)
+Here are more details about the experiment: [Chat With Memory](Chat%20With%20Memory.md)
 
 ### Chat With Reference Material
 
 It occurred to me that I could use the metadata associated with each embedding to store a file reference.  This provides a way for relevant reference material to be embedded into each prompt.  This helped me achieve a long-time goal of teaching an AI to use my scripting language to create objects and animations.  The overall language was too much to include in a prompt, but the accumulated knowledge over time allows the AI to produce valid scripts that create scenes in my test environment.
 
-Here are more details about the experiment: [Chat With Reference Material](https://github.com/easystreetgames/Rob-Harris-Portfolio/blob/main/Agents%20With%20Memory.md)
+Here are more details about the experiment: [Chat With Reference Material](Agents%20With%20Memory.md)
 
 ### Agents With Memory
 
@@ -40,7 +40,7 @@ The nature and quality of these interactions proved highly dependent on the syst
 
 One of the most intriguing findings was the high variability in conversation topics, even when using identical configurations. Multiple runs of the same setup often produced dramatically different conversational trajectories, highlighting the dynamic nature of these AI interactions.
 
-Here are more details about the experiment: [Agents With Memory](https://docs.google.com/document/d/1ex1myNL98O4cmnAicMsdTxy3s_UAmuJ8vxDGWCrVFEs/edit?tab=t.0)
+Here are more details about the experiment: [Agents With Memory](Agents%20With%20Memory.md)
 
 ## **Looking Forward**
 

@@ -16,7 +16,7 @@ The system produces diverse conversation outcomes based on prompting parameters 
 
 A custom scripting layer is used to configure a specific prompting flow for each experiment.  Here is the script for the Agent Simulation prompt logic.
 
-This script is much more complicated than the [Chat With Memory](https://github.com/easystreetgames/Rob-Harris-Portfolio/blob/main/Chat%20With%20Memory.md) and [Chat With Reference Material](https://github.com/easystreetgames/Rob-Harris-Portfolio/blob/main/Chat%20With%20Reference%20Material.md) scripts.  It uses the same basic components of chat API, memory stream, and response parser.  They are enclosed in a state machine that is controlled by a behavior tree.  This allows the agents to operate with some autonomy for match-made conversations with another agent or the user.  When not in conversation, they can perform planning or reflection activities.
+This script is much more complicated than the [Chat With Memory](Chat%20With%20Memory.md) and [Chat With Reference Material](Chat%20With%20Reference%20Material.md) scripts.  It uses the same basic components of chat API, memory stream, and response parser.  They are enclosed in a state machine that is controlled by a behavior tree.  This allows the agents to operate with some autonomy for match-made conversations with another agent or the user.  When not in conversation, they can perform planning or reflection activities.
 
 The scripting layer is convenient for fine-tuning the logic flow and experimenting quickly with variations.  It is a good example of combining classing NPC mechanisms with AI prompting.
 ```
