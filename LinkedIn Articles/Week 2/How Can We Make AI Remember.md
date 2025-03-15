@@ -26,7 +26,7 @@ Here are more details about the experiment: [Chat With Memory](Chat%20With%20Mem
 
 It occurred to me that I could use the metadata associated with each embedding to store a file reference.  This provides a way for relevant reference material to be embedded into each prompt.  This helped me achieve a long-time goal of teaching an AI to use my scripting language to create objects and animations.  The overall language was too much to include in a prompt, but the accumulated knowledge over time allows the AI to produce valid scripts that create scenes in my test environment.
 
-Here are more details about the experiment: [Chat With Reference Material](Agents%20With%20Memory.md)
+Here are more details about the experiment: [Chat With Reference Material](Chat%20With%20Reference%20Material.md)
 
 ### Agents With Memory
 
