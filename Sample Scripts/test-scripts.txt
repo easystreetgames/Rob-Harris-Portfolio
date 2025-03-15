@@ -1,0 +1,46 @@
+rect(x=100 y=100 w=50 h=50 rotate(velocity=90))
+rect(rotate(velocity=90))
+
+
+rect(x=50 y=50 rotate(velocity=90))
+rect(x=50 y=150 rotate(velocity=90)) circle(x=200 y=200)
+Image(src='vite.svg' x=50 y=50 rotate(velocity=90))
+
+circle(x=200 y=200 scale(targetScale=2 duration=5000 destroy=true))
+rect(x=50 y=150 rotate(velocity=90)) 
+rect(x=150 y=150 rotate(velocity=-10)) 
+rect(x=250 y=150 rotate(velocity=180)) 
+
+Rect(x=50 y=150 move(vx=1000)) 
+
+
+Rect(x=50 y=150 move(vx=1000 duration=500)) 
+
+Rect(x=50 y=150 move(x=500 duration=5000)) 
+Rect(x=50 y=250 move(vx=1000 duration=5000)) 
+
+Rect(x=50 y=150 move(x=100 y=200 dur=5000)) 
+
+Rect(x=250 y=150 scale(targetScale=2 duration=5000 destroy=true)) 
+
+Rect(x=300 y=100 rotate(duration=3000 out=go1) scale(in=go2 targetScale=1.5 duration=1000))
+Rect(x=300 y=200 rotate(in=go1 duration=3000 out=go2))
+Rect(x=300 y=300 fillColor=#ff0000 rotate(in=go2))
+
+
+Rect(x=300 y=100 color=#ffff00 rotate(dur=3000 out=go1) scale(in=go2 targetScale=1.5 dur=1000))
+Rect(x=300 y=200 stroke=#00ff00 rotate(in=go1 dur=3000 out=go2))
+Rect(x=300 y=300 color=#ff0000 rotate(in=go2))
+
+Rect(x=250 y=150 rotate(vel=180 dur=~1000<2000)) 
+
+Rect(x=250 y=150 color=red) 
+
+
+Rect(load(wait=3000 path='test-02.txt' destroy))
+
+Set(test=Hello)
+Text(text=$test)
+
+Set(test=red)
+Text(text=test color=$test)
