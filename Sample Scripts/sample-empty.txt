@@ -1,0 +1,16 @@
+// title
+Text(text='Empty' size=70 y=-300)
+
+// two shapes rotating
+Empty(
+  Rect(x=-40)
+  Oval(x=200)
+  // wait for "go" event before rotating
+  rotate(in=go infinite)
+)
+
+// shortcut notation for empty container
+_(anim(wait=1000 out=go)) // send "go" event after delay
+
+// navigation buttons
+_(load(path='sharedControls.txt' destroy))

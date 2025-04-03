@@ -1,0 +1,37 @@
+// title
+Text(text='Klondike' size=70 y=-320)
+
+Text(id=MoveCount text='---' size=50 x=400 y=-320)
+Define(seconds=0)
+Text(x=250 y=-320 text='0' add(wait=1000 key=seconds v=1 b reset) update(text=$seconds reset))
+
+_(id=game klondike())
+
+Pile(id=hand type=hand x=-450 y=-180 w=140 h=195 color=#343 cards=24)
+
+Pile(id=talon type=talon x=-300 y=-180 w=140 h=195 color=#343 single)
+
+Pile(id=fnd0 type=foundation x=0 y=-180 w=140 h=195 color=#343 single)
+Pile(id=fnd1 type=foundation x=150 y=-180 w=140 h=195 color=#343 single)
+Pile(id=fnd2 type=foundation x=300 y=-180 w=140 h=195 color=#343 single)
+Pile(id=fnd3 type=foundation x=450 y=-180 w=140 h=195 color=#343 single)
+
+Pile(id=tab0 type=tableau x=-450 y=150 w=140 h=400 offy=30 color=#343 cards=1)
+Pile(id=tab1 type=tableau x=-300 y=150 w=140 h=400 offy=30 color=#343 cards=2)
+Pile(id=tab2 type=tableau x=-150 y=150 w=140 h=400 offy=30 color=#343 cards=3)
+Pile(id=tab3 type=tableau x=0 y=150 w=140 h=400 offy=30 color=#343 cards=4)
+Pile(id=tab4 type=tableau x=150 y=150 w=140 h=400 offy=30 color=#343 cards=5)
+Pile(id=tab5 type=tableau x=300 y=150 w=140 h=400 offy=30 color=#343 cards=6)
+Pile(id=tab6 type=tableau x=450 y=150 w=140 h=400 offy=30 color=#343 cards=7)
+
+// navigation buttons
+_(load(path='sharedControls.txt' b) set(canvas.bg=#232 des))
+
+
+Text(text='Undo' id=undo x=-380 y=-320 color=#223322 bg=#aa9922
+  //set(in=click.undo canvas.undo reset)
+)
+
+Text(text='Redo' id=redo x=-280 y=-320 color=#223322 bg=#aa9922
+  //set(in=click.undo canvas.undo reset)
+)

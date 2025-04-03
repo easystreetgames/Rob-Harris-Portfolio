@@ -1,0 +1,17 @@
+// title
+Text(text='Spinning and Fading' size=70 y=-300)
+
+// define a prototype called "shapes"
+Define(
+ Empty(id=shapes lerp(x=150 y=50 dur=3000 count=0 osc) rotate(dur=-1) lerp(scale=5 dur=5000)
+  Rect(w=1 h=1 lerp(alpha=0 des dur=9000))
+  Circle(r=5 y=-50 color=red lerp(alpha=0 des dur=9000))
+  Circle(r=5 y=50 color=green lerp(alpha=0 des dur=9000))
+ )
+)
+
+// make 99 copies of the prototype over time
+_(make(script=shapes count=99 interval=300))
+
+// navigation buttons
+_(load(path='sharedControls.txt' destroy))

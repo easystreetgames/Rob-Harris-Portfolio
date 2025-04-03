@@ -1,0 +1,10 @@
+// title
+Text(text='anim' size=70 y=-300)
+
+Empty(anim(wait=1000 out=go0))
+Rect(y=100 color=#ffff00 rotate(in=go0 dur=2000 out=go1) lerp(in=go2 scale=1.5 dur=1000))
+Rect(y=200 stroke=#00ff00 rotate(in=go1 dur=3000 out=go2))
+Rect(y=300 color=#ff0000 rotate(in=go2))
+
+// navigation buttons
+_(load(path='sharedControls.txt' destroy))

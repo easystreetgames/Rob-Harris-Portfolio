@@ -1,0 +1,12 @@
+// title
+Text(text='rotate' size=70 y=-300)
+
+// default rotating rectangle
+Rect(rotate())
+
+// rectangle waits 2 seconds, then rotates 
+// counter-clockwise slowly for 3 seconds
+Rect(y=100 rotate(wait=1500 vel=-180 dur=3000))
+
+// navigation buttons
+_(load(path='sharedControls.txt' destroy))

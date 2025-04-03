@@ -1,0 +1,62 @@
+// bg image
+Image(src=img.homepage w=1280 h=720
+    update(wait=7000 src=img.bg2)
+)
+
+// title
+Text(text='update' size=70 y=-300)
+
+
+Image(
+update(wait=1000 src=card-back b)
+update(wait=1000 stroke=#22222 b)
+update(wait=1000 strokew=2 b)
+update(wait=1500 text=bye b)
+update(wait=1000 w=500 b)
+update(wait=1000 h=500 b)
+update(wait=1000 rot=45 b)
+update(wait=1000 strokew=0 b)
+)
+
+
+Text(text=hello y=-200 x=-200 size=50
+update(wait=1000 stroke=#22222 b)
+update(wait=1000 strokew=2 b)
+update(wait=1500 text=bye b)
+update(wait=1000 w=500 b)
+update(wait=1000 h=500 b)
+update(wait=1000 rot=45 b)
+update(wait=1000 strokew=0 b)
+)
+
+Text(text=hello y=-200 x=200 bg=red size=50
+update(wait=1000 stroke=#55cc55 b)
+update(wait=1000 strokew=5 b)
+update(wait=1500 text=bye b)
+update(wait=1000 w=500 b)
+update(wait=1000 h=500 b)
+update(wait=1000 rot=45 b)
+update(wait=1000 strokew=0 b)
+update(wait=1000 size=30 b)
+)
+
+Rect(x=-200
+update(wait=2000 color=red b)
+update(wait=1000 width=200 b)
+update(wait=1000 stroke=#55cc55 b)
+update(wait=1000 strokew=5 b)
+update(wait=1000 height=100 b)
+update(wait=1000 rotation=45 b)
+)
+
+
+Circle(x=200
+update(wait=1000 color=red b)
+update(wait=1000 stroke=#55cc55 b)
+update(wait=1000 strokew=5 b)
+update(wait=1000 width=200 b)
+update(wait=1000 height=100 b)
+update(wait=1000 rotation=45 b)
+)
+
+Empty(load(path='sharedControls.txt' destroy))

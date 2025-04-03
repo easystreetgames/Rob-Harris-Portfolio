@@ -1,0 +1,11 @@
+// title
+Text(text='move' size=70 y=-300)
+
+// square moves up for 2 seconds
+Square(move(vy=-100 dur=2000))
+
+// circle waits 3 seconds, then move diagonally for 5 seconds
+Circle(y=100 move(wait=1000 vx=100 vy=-50 dur=3000))
+
+// navigation buttons
+_(load(path='sharedControls.txt' destroy))

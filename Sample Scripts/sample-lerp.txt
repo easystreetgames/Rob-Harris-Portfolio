@@ -1,0 +1,24 @@
+// title
+Text(text='lerp' size=70 y=-300)
+
+// go through lerp sequence
+Rect(color=green
+  lerp(y=-150 dur=2000 b)
+  lerp(x=150 dur=2000 b)
+  lerp(w=70 dur=2000 b)
+  lerp(h=70 dur=2000 b)
+  lerp(scale=2.5 dur=2000 b)
+  lerp(angle=50 dur=2000 b)
+  lerp(alpha=.25 dur=2000 b)
+ )
+
+// simultaneous lerp
+Rect(x=-150 color=red
+  lerp(scale=2.5 x=-250 y=150 w=70 h=70 angle=50 alpha=.25 dur=12000 b)
+ )
+
+// lerp through frames
+Sprite(x=200 y=100 src=cards rows=5 cols=13 frame=1 lerp(frame=15 duration=10000 count=-1 osc))
+
+// navigation buttons
+_(load(path='sharedControls.txt' destroy))

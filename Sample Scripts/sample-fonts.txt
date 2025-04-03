@@ -1,0 +1,23 @@
+// title
+Text(text='Text Fonts' size=70 y=-300)
+
+Text(x=-300 y=-200 msg='Palatino Linotype' font='Palatino Linotype' fontSize=50)
+Text(x=-300 y=-150 msg='Tahoma' font=Tahoma fontSize=50)
+Text(x=-300 y=-100 msg='Trebuchet MS' font='Trebuchet MS' fontSize=50)
+Text(x=-300 y=-50 msg='Arial' font=Arial fontSize=50)
+Text(x=-300 y=0 msg='Verdana' font=Verdana fontSize=50)
+Text(x=-300 y=50 msg='Helvetica' font=Helvetica fontSize=50)
+Text(x=-300 y=100 msg='Times New Roman' font='Times New Roman' fontSize=50)
+
+Text(x=300 y=-200 msg='Georgia' font='Georgia' fontSize=50)
+Text(x=300 y=-150 msg='Freestyle Script' font='Freestyle Script' fontSize=50)
+Text(x=300 y=-100 msg='Segoe Script' font='Segoe Script' fontSize=50)
+Text(x=300 y=-50 msg='Kristen ITC' font='Kristen ITC' fontSize=50)
+Text(x=300 y=0 msg='Comic Sans MS' font='Comic Sans MS' fontSize=50)
+Text(x=300 y=50 msg='Cursive' font='Cursive' fontSize=50)
+//Text(x=300 y=100 msg='Chalkboard' font='Chalkboard' fontSize=50)
+Text(x=300 y=100 msg='MV Boli' font='MV Boli' fontSize=50)
+Text(x=300 y=150 msg='Gabriola' font='Gabriola' fontSize=50)
+
+// navigation buttons
+_(load(path='sharedControls.txt' destroy))

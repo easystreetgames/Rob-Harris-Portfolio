@@ -1,0 +1,21 @@
+// title
+Text(text='Proto/make' size=70 y=-300)
+
+// define the prototype
+Define(
+    Text(id=hello text=Hello size=50 x=-200 
+        move(vx=~50<150 vy=~-50<50 dur=~1000<5000 destroy)
+    )
+)
+
+// use the Proto command to create 5 copies of the prototype
+Proto(script=hello count=5)
+
+// use a basic anim to create a prototype upon completion
+_(anim(wait=5000 make=hello))
+
+// make 20 copies of the prototype over time
+_(make(wait=7000 script=hello count=20 interval=500))
+
+// navigation buttons
+_(load(path='sharedControls.txt' destroy))

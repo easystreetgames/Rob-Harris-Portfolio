@@ -1,0 +1,10 @@
+Text(text='assert' size=70 y=-300)
+
+// move, then verify position (see console log)
+Rect(lerp(x=200 b) assert(x=200 report out=assert1))
+
+// move, then verify position (see console log)
+Rect(y=100 lerp(in=assert1.success y=200 b) assert(y=200 report))
+
+// navigation buttons
+_(load(path='sharedControls.txt' destroy))

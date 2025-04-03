@@ -1,0 +1,13 @@
+// title
+Text(text='Sprite' size=70 y=-300)
+
+// basic sprite at 0,0
+Sprite()
+
+// playing card sheet
+Sprite(x=200 y=100 src=cards rows=5 cols=13 rot=45 frame=1 
+    update(wait=1000 frame=15)
+)
+
+// navigation buttons
+_(load(path='sharedControls.txt' destroy))

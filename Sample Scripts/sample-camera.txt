@@ -1,0 +1,17 @@
+// bg image
+Image(src=img.bg3 w=1280 h=720)
+
+// title
+Text(text='camera' size=70 y=-300)
+
+// make test objects
+Image(w=640 h=360)
+Oval(y=230 w=640 color=#00202e)
+Rect(x=-400 h=360 color=#00202e)
+
+// move the camera around
+//Camera(lerp(wait=2000 x=-300 y=-200 dur=3000 count=2 osc) lerp(wait=3000 angle=90 dur=2000 count=2 osc))
+Camera(lerp(wait=1000 x=200 y=-100 scale=.5 angle=70))
+
+// navigation buttons
+_(load(path='sharedControls.txt' destroy))

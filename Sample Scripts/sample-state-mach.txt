@@ -1,0 +1,59 @@
+
+Empty(load(path='sharedControls.txt' destroy))
+
+Define(
+  // bg color
+  canvas.bg=#226622
+
+  // interrupt prototype
+  Oval(id=interrupt x=-200 move(vy=10 inf) update(target=sm state=3 wait=~15000<25000 color=~green,yellow,cyan b) make(script=interrupt des))
+)
+
+// title
+Text(text='State Machine' size=70 y=-300)
+
+Rect(id=sm w=100 color=#3344cc strokew=2
+    state(id=spin rotate(vel=-45 dur=3000 b reset) update(state=1 reset))
+    state(id=move rotate(vel=90 inf) lerp(x=200 dur=2000 osc count=4 b reset) update(state=2 reset))
+    state(id=breath lerp(scale=1.5 count=2 osc b reset) update(target=sm state=0 reset))
+    state(id=spin rotate(vel=-200 dur=5000 b reset) update(target=sm state=0 reset))
+)
+
+Proto(script=interrupt)
+
+//Empty(
+//    update(target=sm state=3 wait=10000 color=red)
+//    update(target=sm state=3 wait=20000 color=green)
+//)
+
+
+/*
+Rect(id=sm w=100 color=#3344cc strokew=2
+    state(id=spin rotate(vel=-45 dur=3000 b reset) if('testId=mine' true=1 false=2 reset))
+    state(id=move rotate(vel=90 inf) lerp(x=200 dur=2000 osc count=4 b reset) update(target=sm state=2 reset))
+    state(id=breath lerp(scale=1.5 count=2 osc b reset) update(target=sm state=0 reset))
+    state(id=spin rotate(vel=-200 dur=5000 b reset) update(target=sm state=0 reset))
+)
+
+Empty(mach id=stateMachine
+    Rect(x=-100 color=red rotate(vel=20 dur=3000 b) update(target=stateMachine frame=1))
+    Rect(x=0 color=green rotate(vel=30 dur=3000 b) update(target=stateMachine frame=2))
+    Rect(x=100 color=blue rotate(vel=40 dur=3000 b) update(target=stateMachine frame=3))
+)
+
+
+
+Rect(
+    state(in=rectState reset)
+    lerp(x=300 count=-1 osc)
+    lerp(y=300 count=-1 osc)
+//    Empty(update(frame=0) lerp(frame=3 count=-1 osc))
+//    Empty(update(frame=4) lerp(frame=6 count=-1 osc))
+)
+
+Empty(
+    anim(wait=3000 out=rectState:2)
+)
+
+
+*/

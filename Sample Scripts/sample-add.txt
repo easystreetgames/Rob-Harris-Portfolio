@@ -1,0 +1,10 @@
+// title
+Text(text='add' size=70 y=-300)
+
+Define(count=0)
+
+Text(text='0' add(wait=1000 key=count v=1 b reset) update(text=$count reset))
+
+// navigation buttons
+_(load(path='sharedControls.txt' destroy))
+

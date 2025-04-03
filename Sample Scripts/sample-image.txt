@@ -1,0 +1,15 @@
+// bg image
+Image(src=img.bg2 w=1280 h=720)
+
+// title
+Text(text='Image' size=70 y=-300 stroke=#222 strokew=2)
+
+// default image at 0,0
+Image()
+
+// images with custom settings
+Image(x=200 y=100 src=wood-tile w=200 h=200 rot=45)
+Image(x=300 y=100 alpha=.5)
+
+// navigation buttons
+_(load(path='sharedControls.txt' destroy))

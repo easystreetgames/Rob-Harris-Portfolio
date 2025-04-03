@@ -1,0 +1,18 @@
+Text(text='browse' size=70 y=-300)
+
+Text(y=-100 id=browse1 text='Browse Google' bg=#343
+    browse(in=click.browse1 url='https://www.google.com/' content='hello')
+)
+
+Define(
+    html='<h1>Hello</h1> from <b>the</b> vars'
+)
+Text(id=browse2 text='Show content' bg=#343
+    browse(in=click.browse2 content=$lastScript features='width=400,height=400,menubar=no,toolbar=no,location=no')
+)
+
+// navigation buttons
+_(load(path='sharedControls.txt' destroy))
+
+
+

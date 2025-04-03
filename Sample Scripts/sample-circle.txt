@@ -1,0 +1,15 @@
+// title
+Text(text='Circle' size=70 y=-300)
+
+// default circle at 0,0
+Circle()
+
+// circle with custom settings
+Circle(x=200 y=100 r=50 color=red)
+
+// oval (ellipse) with custom settings
+Oval(x=200 y=50 w=100 h=50 color=#99aa22 rot=45)
+Ellipse(x=200 y=150 w=100 h=50 color=#aa2299 rot=-45 alpha=0.25)
+
+// navigation buttons
+_(load(path='sharedControls.txt' destroy))

@@ -1,0 +1,35 @@
+Text(text='Banner Test' size=70 y=-300)
+
+Define(
+    canvas.bg=#2222aa
+
+    Text(id=logo text='Yahoo!' size=70 alpha=0
+        lerp(alpha=1 dur=500 b)
+        rotate(wait=1000 vel=360 dur=1000 b)
+        lerp(wait=1000 x=550 osc dur=500 count=2 b)
+        lerp(wait=1000 scale=.01 des)
+    )
+
+    _(id=logo2
+        Text(x=500 lerp(wait=0 x=-200 dur=250 b) y=0 text='Y' size=40 bgImg=wood-tile move(wait=1000 dy=~-20<-50 dur=5000 b des))
+        Text(x=500 lerp(wait=100 x=-130 dur=250 b) y=0 text='A' size=40 bgImg=wood-tile move(wait=1000 dy=~-20<-50 dur=5000 des))
+        Text(x=500 lerp(wait=200 x=-60 dur=250 b) y=0 text='H' size=40 bgImg=wood-tile move(wait=1000 dy=~-20<-50 dur=5000 des))
+        Text(x=500 lerp(wait=300 x=10 dur=250 b) y=0 text='O' size=40 bgImg=wood-tile move(wait=1000 dy=~-20<-50 dur=5000 des))
+        Text(x=500 lerp(wait=400 x=80 dur=250 b) y=0 text='O' size=40 bgImg=wood-tile move(wait=1000 dy=~-20<-50 dur=5000 des))
+        Text(x=500 lerp(wait=500 x=150 dur=250 b) y=0 text='!' size=40 bgImg=wood-tile move(wait=1000 dy=~-20<-50 dur=5000 des))
+        anim(wait=9000 des)
+    )
+)
+
+Rect(w=728 h=90 color=#0000 stroke=#000)
+
+_(make(script=logo count=999 interval=14000))
+
+_(make(wait=7000 script=logo2 count=999 interval=14000))
+
+Text(id=demo text='View Banner Demo' bg=#222 color=#fff y=200
+    browse(in=click.demo target='banner' url='http://worldflyingclub.com/react/banner/index.html' features='width=400,height=100,menubar=no,toolbar=no,location=no')
+)
+
+// navigation buttons
+_(load(path='sharedControls.txt' destroy))

@@ -1,0 +1,16 @@
+Empty(load(path='sharedControls.txt' destroy))
+
+// title
+Text(text='if' size=70 y=-300)
+
+// default rectangle at 0,0
+Define(status=ready)
+
+Rect(id=testObj
+    state(id=cw rotate(vel=90 inf))
+    state(id=ccw rotate(vel=-90 inf))
+)
+
+Empty(
+    if(target=testObj q='status=ready' true=0 false=1 repeat)
+)

@@ -1,0 +1,27 @@
+Define(
+  img.far=parallax-far.png
+  img.mid=parallax-mid.png
+  img.near=parallax-near.png
+  dur.far=15000
+  dur.mid=3000
+  dur.near=2000
+)
+
+// slide images horizontally using lerp
+Image(y=-210 h=300 src=img.far lerp(x=1280 dur=$dur.far count=-1))
+Image(y=-210 h=300 x=-1280 src=img.far lerp(x=0 dur=$dur.far count=-1))
+
+Image(y=50 h=350 src=img.mid lerp(x=1280 dur=$dur.mid count=-1))
+Image(y=50 h=350 x=-1280 src=img.mid lerp(x=0 dur=$dur.mid count=-1))
+
+Image(y=300 h=150 src=img.near lerp(x=1280 dur=$dur.near count=-1))
+Image(y=300 h=150 x=-1280 src=img.near lerp(x=0 dur=$dur.near count=-1))
+
+// title
+Text(text='Parallax Demo' size=70 y=-300 stroke=#222 color=#165385
+  lerp(wait=3000 x=700 y=-260 scale=.01 dur=15000 des)
+  lerp(wait=13000 alpha=0 dur=5000 des)
+)
+
+// navigation buttons
+_(load(path='sharedControls.txt' destroy))

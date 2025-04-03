@@ -1,0 +1,17 @@
+// title
+Text(text='Text' size=70 y=-300)
+
+// default text at 0,0
+Text()
+
+// text with custom settings
+Text(x=200 y=100 text='Hello World' 
+    size=50 color=#99aa22 alpha=0.5 
+    rot=45 font=Trebuchet
+)
+
+// text with background image
+Text(x=-100 y=100 text='A' size=40 bgImg=wood-tile)
+
+// navigation buttons
+_(load(path='sharedControls.txt' destroy))

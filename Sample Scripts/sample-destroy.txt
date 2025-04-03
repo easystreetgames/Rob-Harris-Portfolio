@@ -1,0 +1,16 @@
+// title
+Text(text='destroy' size=70 y=-300)
+
+// test object
+//Rect(id=testObj color=red)
+
+Define(count=3)
+
+Text(id=testObj size=90 color=black text='3' bg=red add(wait=1000 key=count v=-1 b reset) update(text=$count reset))
+
+
+// remote destroy logic
+Empty(destroy(wait=3000 target=testObj))
+
+// navigation buttons
+_(load(path='sharedControls.txt' destroy))

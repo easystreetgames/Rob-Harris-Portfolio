@@ -1,0 +1,8 @@
+// title
+Text(text='load' size=70 y=-300)
+
+// make test object that loads another script
+Rect(load(wait=1000 path='test-02.txt' destroy))
+
+// navigation buttons
+_(load(path='sharedControls.txt' destroy))

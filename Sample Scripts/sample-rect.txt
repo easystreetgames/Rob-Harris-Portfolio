@@ -1,0 +1,16 @@
+// title
+Text(text='Rect' size=70 y=-300)
+
+// default rectangle at 0,0
+Rect()
+
+// square with custom settings
+Square(x=220 y=120 size=60 color=#99aa22 rot=45)
+
+// rectangle with custom settings
+Rect(x=200 y=100 w=60 h=40 color=#aa2299 
+    rot=45 alpha=0.5 strokew=1
+)
+
+// navigation buttons
+_(load(path='sharedControls.txt' destroy))

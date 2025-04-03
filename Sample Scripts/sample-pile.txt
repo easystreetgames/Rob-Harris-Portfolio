@@ -1,0 +1,15 @@
+// title
+Text(text='Pile' size=70 y=-300)
+
+Text(id=MoveCount text='---' size=50 x=400 y=-320)
+
+_(deck(cards=13 start=39))
+
+Pile(id=pile0 x=-500 y=50 w=250 h=600 offy=35 offx=10 color=#343 cards=4)
+Pile(id=pile1 x=-200 y=50 w=250 h=600 offy=35 offx=10 color=#343 cards=4)
+Pile(id=pile2 x=100 y=50 w=250 h=600 offy=35 offx=10 color=#343 cards=4)
+Pile(id=pile3 x=400 y=50 w=250 h=600 offy=35 offx=10 color=#343 cards=1)
+
+// navigation buttons
+_(load(path='sharedControls.txt' b) set(canvas.bg=#232 des))
+
