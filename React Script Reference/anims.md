@@ -69,11 +69,43 @@ if(test='score=100' true='win()' false='continue()')
 ```
 
 ```
-if(test='health<20' true='state=damaged' false='state=normal')
+if(test='health<20' true='damaged' false='normal')
 ```
 
 ```
-if(target='player' test='lives<=0' true='gameOver()' local=true)
+if(target='player' test='lives<=0' true='gameOver()')
+```
+
+## lerp / tween
+Linearly interpolates (transitions) object properties from their current values to specified target values over time.
+
+### Parameters
+- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- duration / dur (int): duration in milliseconds for the interpolation
+- easing / e / ease (string): easing function to use ("in", "out", "in-out")
+- targetX / x (int): target x-coordinate
+- targetY / y (int): target y-coordinate
+- targetW / w / width (int): target width
+- targetH / h / height (int): target height
+- targetAngle / angle (int): target rotation angle in degrees
+- targetFrame / frame (int): target frame for sprite objects
+- targetAlpha / alpha (float): target transparency value (0-1)
+- targetScale / scale (float): target uniform scale value for both x and y
+- count (int): number of times to repeat the animation
+- reverse / rev / osc (boolean): if true, alternates between forward and reverse on each iteration
+- infinity (boolean): if set, the animation repeats indefinitely
+
+### Example
+```
+lerp(x=300 y=200 duration=1000 easing='out')
+```
+
+```
+lerp(width=200 height=150 alpha=0.5 duration=500)
+```
+
+```
+lerp(scale=2 angle=90 duration=2000 reverse=true count=3)
 ```
 
 ## load
@@ -123,6 +155,28 @@ Moves an object based on x and y velocity.
 - vx (int): x velocity (pixels per second)
 - vy (int): y velocity (pixels per second)
 - duration / dur (int): duration in milliseconds
+
+### Example
+```
+Rect(
+  move(vx=100 vy=-100 dur=3000)
+)
+```
+
+## rotate
+Rotates an object based on rotation velocity.
+
+### Parameters
+- wait, in, out, block, destroy, reset, make (basic anim properties)
+- velocity / vel (int): rotation velocity (degrees per second)
+- duration / dur (int): duration in milliseconds
+
+### Example
+```
+Rect(
+  rotate(vel=90 duration=2000)
+)
+```
 
 ## set
 Set one or more variables when the anim becomes active There is also a Define() command used to set variables when the script is parsed (see Object Reference document).
