@@ -1,0 +1,151 @@
+# Anims
+
+## anim / listen
+The base class for all anims. Provides core animation functionality and parameters common to all animation types.
+
+### Parameters
+- wait (int): delay in milliseconds before the animation starts
+- block / b (boolean): if true, blocks subsequent animations until completed
+- destroy / des (boolean): if true, destroys the object when animation completes
+- in / inEvent (string): event that triggers this animation to begin
+- out / outEvent (string): event to trigger when animation completes
+- make / then / proto (string): prototype ID to create upon completion
+- reset (boolean): if true, restarts the animation when it completes
+- removeSelf / remove / rem (boolean): if true, removes the animation when it completes (default: true)
+- repeat / rep (boolean): if true, animation repeats after completion
+- target / t (string): target object ID, used for various purposes depending on the anim type
+
+### Example
+```
+anim(wait=1000 out='start' block=true)
+```
+
+```
+anim(in='gameStart' make='welcome')
+```
+
+## browse
+Opens a URL in a new browser window or tab. Can optionally create a window with custom text content, or close a previously opened window.
+
+### Parameters
+- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- path / url (string): URL to open in the browser
+- target (string): target window name (default: '_blank')
+- features (string): window features configuration string
+- text / txt / msg / content (string): custom text content to display in the window
+- heading / head (string): heading text for the custom content window
+- close (boolean): if true, closes a window with the specified target name instead of opening one
+
+### Example
+```
+browse(url='https://example.com' target='helpWindow' features='width=800,height=600')
+```
+
+```
+browse(target='helpWindow' close=true)
+```
+
+## destroy
+Destroys a target object.
+
+### Parameters
+- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- target (string): the ID of the object to destroy
+
+## if
+Performs a conditional test and executes different actions based on the result. Can test variable values using various comparison operators.
+
+### Parameters
+- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- target (string): optional target object (default is self)
+- testValue / test / q (string): the condition to test, can include operators (=, !=, <, >, <=, >=)
+- trueValue / true / yes (string): action to perform if the test is true
+- falseValue / false / no (string): action to perform if the test is false
+- local (boolean): if true, tests a local variable on the target object rather than a global variable
+
+### Example
+```
+if(test='score=100' true='win()' false='continue()')
+```
+
+```
+if(test='health<20' true='state=damaged' false='state=normal')
+```
+
+```
+if(target='player' test='lives<=0' true='gameOver()' local=true)
+```
+
+## load
+Loads content from a text file and processes it as a script. Can optionally store the loaded content in a variable instead of processing it.
+
+### Parameters
+- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- path / file (string): path to the text file to load
+- clear (boolean): if true, clears all objects before processing the loaded script
+- key (string): if provided, stores the loaded content in a variable with this key instead of processing it
+- manifest (boolean): if true, checks the manifest when loading the file
+
+### Example
+```
+load(file='scripts/intro.txt' clear=true)
+```
+
+```
+load(file='data/settings.txt' key='settings')
+```
+## make
+Parses a prototype definition to create a new object or objects.  There are a variety of options during cloning.  The count parameter specifies how many times to repeat the cloning operation.
+
+### Parameters
+- wait, in, out, block, destroy, reset, make (basic anim properties)
+- script (string): id of prototype to parse
+- count (int): number of times to parse (default is 1)
+- interval / int (int): delay in milliseconds before repeating
+## Example
+```
+Define(
+  Rect(id=cube1 
+    move(vx=100 dur=3000 destroy=true)
+  )
+)
+
+// create a total of 10 cubes over time
+Cont(
+  make(script=cube1 count=10 interval=1000)
+)
+```
+## move
+Moves an object based on x and y velocity.
+
+### Parameters
+- wait, in, out, block, destroy, reset, make (basic anim properties)
+- vx (int): x velocity (pixels per second)
+- vy (int): y velocity (pixels per second)
+- duration / dur (int): duration in milliseconds
+
+## set
+Set one or more variables when the anim becomes active There is also a Define() command used to set variables when the script is parsed (see Object Reference document).
+
+### Parameters
+- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- key=value separated by spaces - associates a key with a value to be used as a variable
+
+### Example
+```
+set(score=0 timer=60) 
+```
+## update
+Sets one or more object properties. This anim can update any object property such as x, y, width, height, alpha, rotation, src, etc.
+
+### Parameters
+- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- target (string): optional target object (default is self)
+- key=value separated by spaces - sets object properties
+
+### Example
+```
+Text(text=’hello’ color=green
+  update(wait=3000 text=’goodbye’ color=red)
+)
+```
