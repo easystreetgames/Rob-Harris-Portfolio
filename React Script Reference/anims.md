@@ -11,7 +11,7 @@ The base class for all anims. Provides core animation functionality and paramete
 - destroy / des (boolean): if true, destroys the object when animation completes
 - in / inEvent (string): event that triggers this animation to begin
 - out / outEvent (string): event to trigger when animation completes
-- make / then / proto (string): [prototype ID](./objects.md#prototypes) to create upon completion
+- make / then / proto (string): ID of [prototype](./objects.md#prototypes) to create upon completion
 - reset (boolean): if true, restarts the animation when it completes
 - removeSelf / remove / rem (boolean): if true, removes the animation when it completes (default: true)
 - repeat / rep (boolean): if true, animation repeats after completion
