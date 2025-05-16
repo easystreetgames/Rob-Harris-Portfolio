@@ -34,7 +34,7 @@ All shapes share basic parameters to configure the shape.
 Creates a rectangular shape with configurable properties.
 
 ### Parameters
-- x, y, width, height, alpha, etc (basic shape parameters) 
+- id, x, y, width, height, alpha, etc (basic shape parameters) 
 - color (string): fill color of the rectangle
 - rotation (float): rotation in radians
 
@@ -55,7 +55,7 @@ Rect(x=300 y=200 width=150 height=150 color=green rotation=0.5)
 Creates a square shape with configurable properties.
 
 ### Parameters
-- x, y, width, height, alpha, etc (basic shape parameters) 
+- id, x, y, width, height, alpha, etc (basic shape parameters) 
 - color (string): fill color of the rectangle
 - rotation (float): rotation in radians
 - size (int): width and height of the square
@@ -72,9 +72,8 @@ Square(x=100 y=150 size=100 color=#223322)
 Creates an elliptical shape with configurable properties.
 
 ### Parameters
-- x, y, width, height, alpha, etc (basic shape parameters) 
+- id, x, y, width, height, alpha, etc (basic shape parameters) 
 - color (string): fill color of the ellipse
-- alpha (float): transparency value (0-1, where 0 is invisible and 1 is fully opaque)
 - rotation (float): rotation in radians
 
 ### Example
@@ -94,7 +93,7 @@ Ellipse(x=300 y=250 width=180 height=120 color=green rotation=0.25)
 Creates a circle shape with configurable properties.
 
 ### Parameters
-- x, y, width, height, alpha, etc (basic shape parameters) 
+- id, x, y, width, height, alpha, etc (basic shape parameters) 
 - color (string): fill color of the rectangle
 - rotation (float): rotation in radians
 - radius (int): width x 2 and height x 2 of the circle
@@ -113,7 +112,7 @@ Circle(x=150 y=100 r=50 color=#223322)
 Creates a text object with customizable content, appearance, and background options.
 
 ### Parameters
-- x, y, width, height, alpha, etc (basic shape parameters) 
+- id, x, y, width, height, alpha, etc (basic shape parameters) 
 - color (string): text color
 - rotation (float): rotation in radians
 - text / txt / msg / content (string): the text content to display
@@ -148,7 +147,7 @@ Text(x=400 y=100 text='Game Over' size=60 color=red font='Impact' bgColor=#22222
 Creates an image object that displays images loaded from a specified source.
 
 ### Parameters
-- x, y, width, height, alpha, etc (basic shape parameters) 
+- id, x, y, width, height, alpha, etc (basic shape parameters) 
 - rotation (float): rotation in radians
 - src / source (string): path or key to the image to display (default: "esg-icon")
 
@@ -173,7 +172,7 @@ Image(x=400 y=200 src='background.jpg' rotation=0.5)
 Creates a sprite object that can display frames from a sprite sheet or animated sequence.
 
 ### Parameters
-- x, y, width, height, alpha, etc (basic shape parameters) 
+- id, x, y, width, height, alpha, etc (basic shape parameters) 
 - rotation (float): rotation in radians
 - src (string): path or key to the sprite sheet image (default: "esg-icon")
 - frame / index / idx (int): current frame to display (default: 0)
@@ -199,7 +198,7 @@ Sprite(x=400 y=200 src='coins.png' columns=6 rows=1 frame=2)
 Creates an empty container object that can hold and manage multiple child objects.
 
 ### Parameters
-- x, y, width, height, alpha, etc (basic shape parameters) 
+- id, x, y, width, height, alpha, etc (basic shape parameters) 
 
 ### Note
 - Children added to the container will inherit the container's position, rotation, and scale
