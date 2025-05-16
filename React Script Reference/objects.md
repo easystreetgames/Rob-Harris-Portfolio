@@ -76,10 +76,6 @@ Creates an elliptical shape with configurable properties.
 - color (string): fill color of the ellipse
 - alpha (float): transparency value (0-1, where 0 is invisible and 1 is fully opaque)
 - rotation (float): rotation in radians
-- scale.x (float): horizontal scaling factor
-- scale.y (float): vertical scaling factor
-- strokeWidth (int): width of the outline in pixels
-- strokeColor (string): color of the outline
 
 ### Example
 ```
@@ -170,7 +166,7 @@ Image(x=100 y=300 src='logo.png' width=128 height=64 alpha=0.8)
 ```
 
 ```
-Image(x=400 y=200 src='background.jpg' rotation=0.5 scale.x=1.5 scale.y=1.5)
+Image(x=400 y=200 src='background.jpg' rotation=0.5)
 ```
 
 ## Sprite
@@ -194,7 +190,7 @@ Sprite(x=100 y=300 src='explosion.png' columns=5 rows=1 width=64 height=64)
 ```
 
 ```
-Sprite(x=400 y=200 src='coins.png' columns=6 rows=1 frame=2 scale.x=2 scale.y=2)
+Sprite(x=400 y=200 src='coins.png' columns=6 rows=1 frame=2)
 ```
 
 # Container Objects
