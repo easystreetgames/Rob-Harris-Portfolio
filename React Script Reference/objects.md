@@ -1,6 +1,6 @@
 # Objects
 
-A script contains a collection of display objects. When the script is parsed, it creates those display objects.  Each display object can have one or more anims attached to it.  Anims are updated once per frame to affect their display object or perform some other action.
+A script is a collection of display objects. When the script is parsed, it creates those display objects.  Each display object can have one or more [anims](./anims.md) attached to it.  Anims are updated once per frame to affect their display object or perform some other action.
 
 There are several types of display objects:
 - Shape objects

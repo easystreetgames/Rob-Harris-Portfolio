@@ -1,5 +1,7 @@
 # Anims
 
+Anims perform specific actions, usually affecting the [display object](./objects.md) they are attached to.  All anims inherit the capabilites of the base anim in addition to their specific function.  Multiple anims can be attached to a display object to give it their combined capabilities.
+
 ## anim / listen
 The base class for all anims. Provides core animation functionality and parameters common to all animation types.
 
@@ -179,7 +181,7 @@ Rect(
 ```
 
 ## set
-Set one or more variables when the anim becomes active There is also a Define() command used to set variables when the script is parsed (see Object Reference document).
+Set one or more variables when the anim becomes active There is also a [Define()](./objects.md#define) command used to set variables when the script is parsed (see Object Reference document).
 
 ### Parameters
 - wait, in, out, block, destroy, reset, make (basic anim parameters)
