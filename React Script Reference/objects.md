@@ -118,13 +118,11 @@ Creates a text object with customizable content, appearance, and background opti
 
 ### Parameters
 - x, y, width, height, alpha, etc (basic shape parameters) 
-- strokeWidth (int): width of the text outline
-- strokeColor (string): color of the text outline
+- color (string): text color
 - rotation (float): rotation in radians
 - text / txt / msg / content (string): the text content to display
 - size / sz (int): font size in pixels (default: 30)
 - font (string): font family name (default: "Arial")
-- color (string): text color
 - align (string): text alignment ("left", "center", "right") (default: "center")
 - baseline / base (string): vertical alignment ("top", "middle", "bottom") (default: "middle")
 - bgColor / bg (string): background color
@@ -155,10 +153,8 @@ Creates an image object that displays images loaded from a specified source.
 
 ### Parameters
 - x, y, width, height, alpha, etc (basic shape parameters) 
-- src / source (string): path or key to the image to display (default: "esg-icon")
 - rotation (float): rotation in radians
-- strokeWidth (int): width of the border in pixels
-- strokeColor (string): color of the border
+- src / source (string): path or key to the image to display (default: "esg-icon")
 
 ### Note
 - natural width and height of the image are used if not specified
@@ -182,15 +178,11 @@ Creates a sprite object that can display frames from a sprite sheet or animated 
 
 ### Parameters
 - x, y, width, height, alpha, etc (basic shape parameters) 
+- rotation (float): rotation in radians
 - src (string): path or key to the sprite sheet image (default: "esg-icon")
-- width (int): width of each frame in pixels (uses natural width/columns if not specified)
-- height (int): height of each frame in pixels (uses natural height/rows if not specified)
 - frame / index / idx (int): current frame to display (default: 0)
 - columns / cols (int): number of columns in the sprite sheet (default: 1)
 - rows (int): number of rows in the sprite sheet (default: 1)
-- rotation (float): rotation in radians
-- strokeWidth (int): width of the border in pixels
-- strokeColor (string): color of the border
 
 ### Example
 ```
