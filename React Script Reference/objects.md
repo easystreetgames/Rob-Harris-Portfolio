@@ -36,7 +36,7 @@ Creates a rectangular shape with configurable properties.
 ### Parameters
 - id, x, y, width, height, alpha, etc (basic shape parameters) 
 - color (string): fill color of the rectangle
-- rotation (float): rotation in radians
+- rotation (float): rotation in degrees
 
 ### Example
 ```
@@ -48,7 +48,7 @@ Rect(x=50 y=50 width=80 height=30 color=red strokeWidth=2 strokeColor=black)
 ```
 
 ```
-Rect(x=300 y=200 width=150 height=150 color=green rotation=0.5)
+Rect(x=300 y=200 width=150 height=150 color=green rotation=50)
 ```
 
 ## Square
@@ -57,7 +57,7 @@ Creates a square shape with configurable properties.
 ### Parameters
 - id, x, y, width, height, alpha, etc (basic shape parameters) 
 - color (string): fill color of the rectangle
-- rotation (float): rotation in radians
+- rotation (float): rotation in degrees
 - size (int): width and height of the square
 
 ### Example
@@ -74,7 +74,7 @@ Creates an elliptical shape with configurable properties.
 ### Parameters
 - id, x, y, width, height, alpha, etc (basic shape parameters) 
 - color (string): fill color of the ellipse
-- rotation (float): rotation in radians
+- rotation (float): rotation in degrees
 
 ### Example
 ```
@@ -86,7 +86,7 @@ Circle(x=100 y=100 width=80 height=80 color=red strokeWidth=3 strokeColor=black)
 ```
 
 ```
-Ellipse(x=300 y=250 width=180 height=120 color=green rotation=0.25)
+Ellipse(x=300 y=250 width=180 height=120 color=green rotation=30)
 ```
 
 ## Circle
@@ -95,7 +95,7 @@ Creates a circle shape with configurable properties.
 ### Parameters
 - id, x, y, width, height, alpha, etc (basic shape parameters) 
 - color (string): fill color of the rectangle
-- rotation (float): rotation in radians
+- rotation (float): rotation in degrees
 - radius (int): width x 2 and height x 2 of the circle
 
 ### Example
@@ -114,7 +114,7 @@ Creates a text object with customizable content, appearance, and background opti
 ### Parameters
 - id, x, y, width, height, alpha, etc (basic shape parameters) 
 - color (string): text color
-- rotation (float): rotation in radians
+- rotation (float): rotation in degrees
 - text / txt / msg / content (string): the text content to display
 - size / sz (int): font size in pixels (default: 30)
 - font (string): font family name (default: "Arial")
@@ -148,7 +148,7 @@ Creates an image object that displays images loaded from a specified source.
 
 ### Parameters
 - id, x, y, width, height, alpha, etc (basic shape parameters) 
-- rotation (float): rotation in radians
+- rotation (float): rotation in degrees
 - src / source (string): path or key to the image to display (default: "esg-icon")
 
 ### Note
@@ -165,7 +165,7 @@ Image(x=100 y=300 src='logo.png' width=128 height=64 alpha=0.8)
 ```
 
 ```
-Image(x=400 y=200 src='background.jpg' rotation=0.5)
+Image(x=400 y=200 src='background.jpg' rotation=180)
 ```
 
 ## Sprite
@@ -173,7 +173,7 @@ Creates a sprite object that can display frames from a sprite sheet or animated 
 
 ### Parameters
 - id, x, y, width, height, alpha, etc (basic shape parameters) 
-- rotation (float): rotation in radians
+- rotation (float): rotation in degrees
 - src (string): path or key to the sprite sheet image (default: "esg-icon")
 - frame / index / idx (int): current frame to display (default: 0)
 - columns / cols (int): number of columns in the sprite sheet (default: 1)
