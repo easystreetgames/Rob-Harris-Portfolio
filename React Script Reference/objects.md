@@ -260,7 +260,7 @@ Text(text='Click Me' color=$buttonColor bg=$buttonColor)
 
 ### Prototypes
 
-Objects can be defined for future creation.  
+Objects can be defined for future creation.  See the [Prototype tutorial](./prototypes.md) for more details.
 
 ```
 Define(
