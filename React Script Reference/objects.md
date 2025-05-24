@@ -149,7 +149,7 @@ Creates an image object that displays images loaded from a specified source.
 ### Parameters
 - id, x, y, width, height, alpha, etc (basic shape parameters) 
 - rotation (float): rotation in degrees
-- src / source (string): path or key to the image to display (default: "esg-icon")
+- src / source (string): key of the image to display (default: "esg-icon")
 
 ### Note
 - natural width and height of the image are used if not specified
@@ -157,7 +157,7 @@ Creates an image object that displays images loaded from a specified source.
 
 ### Example
 ```
-Image(x=200 y=150 src='assets/player.png')
+Image(x=200 y=150 src='player.png')
 ```
 
 ```
@@ -174,7 +174,7 @@ Creates a sprite object that can display frames from a sprite sheet or animated 
 ### Parameters
 - id, x, y, width, height, alpha, etc (basic shape parameters) 
 - rotation (float): rotation in degrees
-- src (string): path or key to the sprite sheet image (default: "esg-icon")
+- src (string): key of the sprite sheet image (default: "esg-icon")
 - frame / index / idx (int): current frame to display (default: 0)
 - columns / cols (int): number of columns in the sprite sheet (default: 1)
 - rows (int): number of rows in the sprite sheet (default: 1)
