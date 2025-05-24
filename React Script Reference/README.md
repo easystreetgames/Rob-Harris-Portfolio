@@ -8,3 +8,6 @@
 
 * [The Reset Property](https://github.com/easystreetgames/Rob-Harris-Portfolio/blob/main/React%20Script%20Reference/reset.md)
 
+
+* [Prototypes](https://github.com/easystreetgames/Rob-Harris-Portfolio/blob/main/React%20Script%20Reference/prototypes.md)
+
