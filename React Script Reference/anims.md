@@ -55,17 +55,19 @@ Destroys a target object.
 ## if
 Performs a conditional test and executes different actions based on the result. Can test variable values using various comparison operators.
 
+See the [State Machine Tutorial](./state-machines.md) for more details.
+
 ### Parameters
 - wait, in, out, block, destroy, reset, make (basic anim parameters)
 - target (string): optional target object (default is self)
 - testValue / test / q (string): the condition to test, can include operators (=, !=, <, >, <=, >=)
-- trueValue / true / yes (string): action to perform if the test is true
-- falseValue / false / no (string): action to perform if the test is false
+- trueValue / true / yes (string): state to set or prototype to make if the test is true
+- falseValue / false / no (string): state to set or prototype to make if the test is false
 - local (boolean): if true, tests a local variable on the target object rather than a global variable
 
 ### Example
 ```
-if(test='score=100' true='win()' false='continue()')
+if(test='score=100' true='$win()' false='$continue()')
 ```
 
 ```
@@ -73,7 +75,7 @@ if(test='health<20' true='damaged' false='normal')
 ```
 
 ```
-if(target='player' test='lives<=0' true='gameOver()')
+if(target='player' test='lives<=0' true='$gameOver()')
 ```
 
 ## lerp / tween
