@@ -5,7 +5,7 @@ The **State** object is a special type of object used to create state machine an
 ## State Machine Construct
 A state machine is a construct that applies certain behavior to an object based on its current state.  When the state changes, the behavior changes.
 
-Every object maintains a list of anims that are updated each animation frame. The State object is a special object that is invisible and defers its anim's effects to its parent object.  Only one of the State objects is active at a time. By changing state, a different set of anims will affect the parent object.
+Every object maintains a list of anims that are updated each animation frame. The State object is an invisible object that defers its anim's effects to its parent object.  Only one of the State objects contained by an object is active at a time. By changing state, a different set of anims will affect the parent object.
 
 State is changed by setting the state property in the parent object to the ID of the new state. The first state will run by default.  
 
