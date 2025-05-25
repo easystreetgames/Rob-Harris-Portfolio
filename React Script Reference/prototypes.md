@@ -1,5 +1,7 @@
 # Prototypes
-A prototype is a script that is used to create one or more copies of an object.  A prototype can be defined as a global variable or it can be a n in-line definition.
+A prototype is a script that is used to create one or more copies of an object.  A prototype can be defined as a global variable or it can be an in-line definition.
+
+There are multiple ways to make protoype copies either when a script is paresed or later using an anim.  The **Proto()** command and **$** notation create copies at parse-time.  The **anim** anim and **make** anim create copies after the scene has started.
 
 ## Proto Command
 Prototype copies can be created when a script is parsed using the Proto() command.  This command takes either a global variable ID or a quoted script and makes an object that is added to the current scene.
@@ -34,15 +36,15 @@ The $ notation is very similar to the Proto() command, but it also makes it easy
 // advantage: easy to override properties
 $hola(y=100 color=yellow)
 ```
-## * Notation
+### * Notation
 Multiple copies can be made by using the * notation with the $ notation.
 ```
 // * count notation
 // used to make multiple copies
 $hello*3(y=-100 color=red)
 ```
-## Anim
-The basic anim can be used to create a prototype copy when an anim is completed.  Since all anims inherit the properties of the basic anim, this can be quite powerful.
+## The Basic Anim
+The **anim** anim can be used to create a prototype copy when an anim is completed.  Since all anims inherit the properties of the basic anim, this can be quite powerful.
 ```
 
 // define the prototype
@@ -72,9 +74,9 @@ _(
   anim(wait=2000 make="$hello*4(y=-150 color=orange)")
 )
 ```
-### Inheriting Basing Properties
+### Inheriting Basic Properties
 ```
-// example: all anims inherit the **make** property
+// example: all anims inherit the make property
 // start hidden below the view
 Text("Surprise!" y=500
   // wait 4 secs, fly into view, then make a flying circle 

@@ -234,6 +234,8 @@ An existing object in a scene can be referenced by prefixing the object's ID wit
 ## $(prototype ID)
 Objects defined by the Define command (see next section) are called prototypes.  Once a prototype has been defined, copies can be created by using the dollar sign notation.
 
+See the [Prototype tutorial](./prototypes.md) for more details.
+
 ### Example
 ```
 $toast(text='hello world' x=0 y=-50)
@@ -260,7 +262,9 @@ Text(text='Click Me' color=$buttonColor bg=$buttonColor)
 
 ### Prototypes
 
-Objects can be defined for future creation.  See the [Prototype tutorial](./prototypes.md) for more details.
+Objects can be defined for future creation.  
+
+See the [Prototype tutorial](./prototypes.md) for more details.
 
 ```
 Define(
