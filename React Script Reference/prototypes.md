@@ -1,7 +1,10 @@
-```
-// title
-Text(text='Prototypes' size=70 y=-300)
+# Prototypes
+A prototype is a script that is used to create one or more copies of an object.  A prototype can be defined as a global variable or it can be a n in-line definition.
 
+## Proto Command
+Prototype copies can be created when a script is parsed using the Proto() command.  This command takes either a global variable ID or a quoted script and makes an object that is added to the current scene.
+
+```
 // define the prototype
 Define(
     Text(id=hello text=Hello size=50 x=-200 
@@ -22,18 +25,25 @@ Proto(count=3 "hello")
 // an in-line prototype definition
 // useful for creating multiple copies
 Proto(count=5 "Oval(move(dy=~100<300 des))")
-
+```
+## $ Notation
+The $ notation is very similar to the Proto() command, but it also makes it easy to override prototype properties.
+```
 // $ proto notation
 // same limits as Proto() command
 // advantage: easy to override properties
 $hola(y=100 color=yellow)
-
+```
+## * Notation
+Multiple copies can be made by using the * notation with the $ notation.
+```
 // * count notation
 // used to make multiple copies
 $hello*3(y=-100 color=red)
-
-// title
-Text(text='Prototypes' size=70 y=-300)
+```
+## Anim
+The basic anim can be used to create a prototype copy when an anim is completed.  Since all anims inherit the properties of the basic anim, this can be quite powerful.
+```
 
 // define the prototype
 Define(
@@ -61,8 +71,10 @@ _(
   // (allows multiple copies and property overrides)
   anim(wait=2000 make="$hello*4(y=-150 color=orange)")
 )
-
-// example: all anims inherit the make property
+```
+### Inheriting Basing Properties
+```
+// example: all anims inherit the **make** property
 // start hidden below the view
 Text("Surprise!" y=500
   // wait 4 secs, fly into view, then make a flying circle 
@@ -72,10 +84,10 @@ Text("Surprise!" y=500
 Rect(y=500
   move(wait=5000 dx=75 dy=-100 dur=5000 make="$hello*9(color=~red,yellow,orange)")
 )
-
-// title
-Text(text='Prototypes' size=70 y=-300)
-
+```
+## The Make Anim
+The **make** anim provides a way to create prototype copies over time, like for particle effects.
+```
 // define the prototype
 Define(
     Text(id=hello text=Hello size=50 x=-200 
