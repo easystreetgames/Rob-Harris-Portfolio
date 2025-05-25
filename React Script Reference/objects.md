@@ -7,6 +7,7 @@ There are several types of display objects:
 - Image objects
 - Text objects
 - Container objects
+- State object
 
 Special notation is used to find an existing object in a scene or create an object from a prototype definition:
 - ?(object ID)
@@ -219,6 +220,8 @@ Container(id='card' x=200 y=150
   Text(y=40 text='Power Card' color=black)
 )
 ```
+## State Object
+The State object is a special type of object used to create state machine and behavior tree constructs.  See the [State Machine Tutorial](./state-machines.md) for more details.
 
 # Special Notation
 
