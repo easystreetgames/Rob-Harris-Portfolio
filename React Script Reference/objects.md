@@ -30,6 +30,7 @@ All shapes share basic parameters to configure the shape.
 - visible / vis (boolean): visibility
 - strokeWidth (int): width of the outline in pixels
 - strokeColor / stroke (string): color of the outline
+- state (string): object ID of a state contained by this object (see [State Machine Tutorial](./state-machines.md) for details)
 
 ## Rectangle / Rect
 Creates a rectangular shape with configurable properties.
