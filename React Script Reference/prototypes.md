@@ -1,7 +1,7 @@
 # Prototypes
 A prototype is a script that is used to create one or more copies of an object.  A prototype can be defined as a global variable or it can be an in-line definition.
 
-There are multiple ways to make protoype copies either when a script is paresed or later using an anim.  The **Proto()** command and **$** notation create copies at parse-time.  The **anim** anim and **make** anim create copies after the scene has started.
+There are multiple ways to make protoype copies either when a script is paresed or later using an anim.  The [Proto()](./objects.md#prototypes) command and [$ notation](./objects.md#prototype-id) create copies at parse-time.  The [anim](./anims.md#anim--listen) anim and [make](./anims.md#make) anim create copies after the scene has started.
 
 ## Proto Command
 Prototype copies can be created when a script is parsed using the Proto() command.  This command takes either a global variable ID or a quoted script and makes an object that is added to the current scene.
@@ -29,7 +29,7 @@ Proto(count=3 "hello")
 Proto(count=5 "Oval(move(dy=~100<300 des))")
 ```
 ## $ Notation
-The $ notation is very similar to the Proto() command, but it also makes it easy to override prototype properties.
+The [$ notation](./objects.md#prototype-id) is very similar to the Proto() command, but it also makes it easy to override prototype properties.
 ```
 // $ proto notation
 // same limits as Proto() command
@@ -44,7 +44,7 @@ Multiple copies can be made by using the * notation with the $ notation.
 $hello*3(y=-100 color=red)
 ```
 ## The Basic Anim
-The **anim** anim can be used to create a prototype copy when an anim is completed.  Since all anims inherit the properties of the basic anim, this can be quite powerful.
+The [anim](./anims.md#anim--listen) anim can be used to create a prototype copy when an anim is completed.  Since all anims inherit the properties of the basic anim, this can be quite powerful.
 ```
 
 // define the prototype
@@ -75,20 +75,25 @@ _(
 )
 ```
 ### Inheriting Basic Properties
+Here are two examples of the [lerp](./anims.md#lerp--tween) anim and [move](./anims.md#move) anim inheriting the make property from the basic anim.
+
 ```
-// example: all anims inherit the make property
+// example: lerp anim creating a circle when done
 // start hidden below the view
 Text("Surprise!" y=500
   // wait 4 secs, fly into view, then make a flying circle 
   lerp(wait=4000 y=0 make="Circle(color=red move(dy=-100 destroy))")
 )
 
+// example: move anim creating multiple prototype copies when done
+// start hidden below the view
 Rect(y=500
+  // move into view and then create 9 copies of the hello prototype
   move(wait=5000 dx=75 dy=-100 dur=5000 make="$hello*9(color=~red,yellow,orange)")
 )
 ```
 ## The Make Anim
-The **make** anim provides a way to create prototype copies over time, like for particle effects.
+The [make](./anims.md#make) anim provides a way to create prototype copies over time, like for particle effects.
 ```
 // define the prototype
 Define(
