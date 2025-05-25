@@ -115,7 +115,7 @@ _(
     make(wait=4000 script=hello count=20 interval=500)
 
     // inline prototype using shortcut notation
-    make(wait=5000 count=10 
+    make(wait=5000 count=10 interval=500
         "Rect(x=-200 y=200
             rotate(inf)
             move(dx=100 dur=5000 des)
