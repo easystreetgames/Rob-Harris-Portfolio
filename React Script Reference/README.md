@@ -9,3 +9,4 @@
 * [The Reset Property](https://github.com/easystreetgames/Rob-Harris-Portfolio/blob/main/React%20Script%20Reference/reset.md)
 * [Prototypes](https://github.com/easystreetgames/Rob-Harris-Portfolio/blob/main/React%20Script%20Reference/prototypes.md)
 * [State Machines and Behavior Trees](https://github.com/easystreetgames/Rob-Harris-Portfolio/blob/main/React%20Script%20Reference/state-machines.md)
+* [Scripting Fun](https://github.com/easystreetgames/Rob-Harris-Portfolio/blob/main/React%20Script%20Reference/samples.md)
