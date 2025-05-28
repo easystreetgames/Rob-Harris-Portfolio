@@ -8,7 +8,7 @@ In most of the examples, the **wait** property is used to add a delay between th
 
 The **anim** anim can repeat any of its functions, such as firing events, listening for events, and making prototype copies. The **move** anim inherits the basic anim's properties, so it can repeatedly listen and respond to an event as in this example.
 
-```
+```script
 // --- basic anim and move anim ---
 
 // moving squares
@@ -40,7 +40,7 @@ _(
 
 The **move** and **rotate** anims can repeat thier motion after a delay.
 
-```
+```script
 // --- move anim ---
 
 Square(x=-300
@@ -58,7 +58,7 @@ Square(
 
 The **lerp** anim can perform a more complex timing by repeating it cycle as specified, then pausing before repeating the cycle again.
 
-```
+```script
 // --- lerp anim ---
 
 Oval(color=green
@@ -71,7 +71,7 @@ Oval(color=green
 
 The **destroy** anim can sequentially destroy objects with the same ID from back z-order to front.
 
-```
+```script
 // --- destroy anim ---
 
 _(
@@ -86,7 +86,7 @@ _(
 
 The **load** anim can load the same script file repeatedly.
 
-```
+```script
 // --- load anim ---
 
 _(
@@ -98,7 +98,7 @@ _(
 
 The **add** anim can continuously add a value or string to a global variable.  The **update** anim resets after updating so that it will work again the next time the variable is changed.  This can be used for a countdown or timer.
 
-```
+```script
 // --- add and update anims ---
 
 Text(text='0' y=-150
@@ -116,10 +116,9 @@ Text(text='' y=-100
 
 ## If Anim
 
-
 The **if** anim can check for a condition, change a state, then continue to check the condition.
 
-```
+```script
 // --- if anim ---
 
 Rect(id=testobj local='status=working' w=200

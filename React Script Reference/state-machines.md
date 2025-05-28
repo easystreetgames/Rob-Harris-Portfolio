@@ -3,6 +3,7 @@
 The **State** object is a special type of object used to create state machine and behavior tree constructs.  
 
 ## State Machine Construct
+
 A state machine is a construct that applies certain behavior to an object based on its current state.  When the state changes, the behavior changes.
 
 Every object maintains a list of anims that are updated each animation frame. The State object is an invisible object that defers its anim's effects to its parent object.  Only one of the State objects contained by an object is active at a time. By changing state, a different set of anims will affect the parent object.
@@ -11,7 +12,7 @@ State is changed by setting the state property in the parent object to the ID of
 
 In this example, notice that the color change is performed once when a state changes, but the rotate action runs indefinitely until the state is changed again.
 
-```
+```script
 // state machine construct: rotating rectangle
 Rect(
     // default state
@@ -42,14 +43,16 @@ Rect(
 ```
 
 ## Behavior Tree Construct
+
 A behavior tree is an animated decision tree that uses a "blackboard" associated with an object to check for changes in conditions.  The tree will follow the same decision path each animation frame until conditions change.
 
-The [if](./anims.md#if) anim is used to monitor conditions and change state as needed.  This creates a behavior tree construct that checks conditions each animation frame. 
+The [if](./anims.md#if) anim is used to monitor conditions and change state as needed.  This creates a behavior tree construct that checks conditions each animation frame.
 
 In this example, the **if** anim is checking the value of a local variable called "status".  It is necessary to use local variables as a "blackboard" so that each object holds its own unique state.  The **if** anim's **reset** flag is set so that the anim will reset when done and continue to monitor for the variable to change again.
 
 The default idle state does nothing so the **if** anim can decide the initial state.
-```
+
+```script
 // behavior tree construct: patrolling oval
 Oval(id=testobj local='status=normal' w=50 h=70
     // when status changes to normal, home state is set

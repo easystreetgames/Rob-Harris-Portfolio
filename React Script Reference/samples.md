@@ -3,9 +3,10 @@
 Drop these into the sandbox for fun scripting effects.
 
 ## Spinning Letter
+
 Add this one more than once for a fun effect.
 
-```
+```script
 // random letter and color
 Text(text=~Y,a,h,o,o,!,.,*,.,.,. color=~#f2f,#f4f,#f6f,#f8f,#faf,#f0f
   move(thrust=150 infinite)     // move based on current rotation
@@ -14,7 +15,8 @@ Text(text=~Y,a,h,o,o,!,.,*,.,.,. color=~#f2f,#f4f,#f6f,#f8f,#faf,#f0f
 ```
 
 Add some vertical randomness.
-```
+
+```script
 Text(text=~Y,a,h,o,o,!,.,*,.,.,. color=~#f2f,#f4f,#f6f,#f8f,#faf,#f0f
   // quickly move at a random vertical speed
   move(dy=~100<1000 dur=200 block) // while blocking the other anims
@@ -24,7 +26,8 @@ Text(text=~Y,a,h,o,o,!,.,*,.,.,. color=~#f2f,#f4f,#f6f,#f8f,#faf,#f0f
 ```
 
 Use a make anim to make 50 copies over time.
-```
+
+```script
 // make a container object to hold the make anim
 _(y=100 x=0
   // quickly make 50 copies
