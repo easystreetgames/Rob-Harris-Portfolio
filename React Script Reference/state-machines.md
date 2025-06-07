@@ -46,7 +46,7 @@ Rect(
 
 A behavior tree is an animated decision tree that uses a "blackboard" associated with an object to check for changes in conditions.  The tree will follow the same decision path each animation frame until conditions change.
 
-The [if](./anims.md#if) anim is used to monitor conditions and change state as needed.  This creates a behavior tree construct that checks conditions each animation frame.
+The [if](./anims.md#if--compare) anim is used to monitor conditions and change state as needed.  This creates a behavior tree construct that checks conditions each animation frame.
 
 In this example, the **if** anim is checking the value of a local variable called "status".  It is necessary to use local variables as a "blackboard" so that each object holds its own unique state.  The **if** anim's **reset** flag is set so that the anim will reset when done and continue to monitor for the variable to change again.
 
