@@ -40,13 +40,13 @@ All shapes share basic parameters to configure the shape.
 
 Creates a rectangular shape with configurable properties.
 
-#### Parameters
+#### Parameters for Rectangle
 
 - id, x, y, width, height, alpha, etc (basic shape parameters) 
 - color (string): fill color of the rectangle
 - rotation (float): rotation in degrees
 
-#### Example
+#### Example: Rectangle
 
 ```script
 Rectangle(x=100 y=150 width=200 height=100 color=blue alpha=0.8)
@@ -64,34 +64,34 @@ Rect(x=300 y=200 width=150 height=150 color=green rotation=50)
 
 Creates a square shape with configurable properties.
 
-#### Parameters
+#### Parameters for Square
 
 - id, x, y, width, height, alpha, etc (basic shape parameters) 
 - color (string): fill color of the rectangle
 - rotation (float): rotation in degrees
 - size (int): width and height of the square
 
-#### Example
+#### Example: Square
 
 ```script
 Square(x=100 y=150 size=100 color=#223322)
 ```
 
-#### Note
+#### Square Dimensions
 
-- the shape does not have to stay square; height and width can be modified after creation
+The shape does not have to stay square; height and width can be modified after creation.
 
 ### Ellipse / Oval
 
 Creates an elliptical shape with configurable properties.
 
-#### Parameters
+#### Parameters for Ellipse
 
 - id, x, y, width, height, alpha, etc (basic shape parameters) 
 - color (string): fill color of the ellipse
 - rotation (float): rotation in degrees
 
-#### Example
+#### Example: Ellipse
 
 ```script
 Ellipse(x=200 y=150 width=300 height=200 color=purple alpha=0.7)
@@ -109,22 +109,22 @@ Ellipse(x=300 y=250 width=180 height=120 color=green rotation=30)
 
 Creates a circle shape with configurable properties.
 
-#### Parameters
+#### Parameters for Circle
 
 - id, x, y, width, height, alpha, etc (basic shape parameters) 
 - color (string): fill color of the rectangle
 - rotation (float): rotation in degrees
 - radius (int): width x 2 and height x 2 of the circle
 
-#### Example
+#### Example: Circle
 
 ```script
 Circle(x=150 y=100 r=50 color=#223322)
 ```
 
-#### Note
+#### Circle Dimensions
 
-- the shape does not have to stay round; height and width can be modified after creation
+The shape does not have to stay round; height and width can be modified after creation.
 
 ## Text Objects
 
@@ -132,7 +132,7 @@ Circle(x=150 y=100 r=50 color=#223322)
 
 Creates a text object with customizable content, appearance, and background options.
 
-#### Parameters
+#### Parameters for Text
 
 - id, x, y, width, height, alpha, etc (basic shape parameters) 
 - color (string): text color
@@ -150,10 +150,16 @@ Creates a text object with customizable content, appearance, and background opti
 - lineLimit / limit (int): maximum number of lines to display (default: 15)
 - charPerLine / charLimit / wrap (int): maximum characters per line for word wrapping
 
-#### Example
+The **text** property has a special value that can be used to show the ID of an object: **%self%**.  When used to set the text property, it will be replaced by the object's ID.
+
+#### Example: Text
 
 ```script
-Text(x=200 y=150 text='Hello World' size=40 color=black)
+Text('Hello World')
+```
+
+```script
+Text(id=Hello x=-200 y=150 text=%self% size=40 color=black)
 ```
 
 ```script
@@ -170,18 +176,17 @@ Text(x=400 y=100 text='Game Over' size=60 color=red font='Impact' bgColor=#22222
 
 Creates an image object that displays images loaded from a specified source.
 
-#### Parameters
+#### Parameters for Image
 
 - id, x, y, width, height, alpha, etc (basic shape parameters) 
 - rotation (float): rotation in degrees
 - src / source (string): key of the image to display (default: "esg-icon")
 
-#### Note
+#### Natural Dimensions
 
 - natural width and height of the image are used if not specified
 
-
-#### Example
+#### Example: Image
 
 ```script
 Image(x=200 y=150 src='player.png')
@@ -199,7 +204,7 @@ Image(x=400 y=200 src='background.jpg' rotation=180)
 
 Creates a sprite object that can display frames from a sprite sheet or animated sequence.
 
-#### Parameters
+#### Parameters for Sprite
 
 - id, x, y, width, height, alpha, etc (basic shape parameters) 
 - rotation (float): rotation in degrees
@@ -208,7 +213,7 @@ Creates a sprite object that can display frames from a sprite sheet or animated 
 - columns / cols (int): number of columns in the sprite sheet (default: 1)
 - rows (int): number of rows in the sprite sheet (default: 1)
 
-#### Example
+#### Example: Sprite
 
 ```script
 Sprite(x=200 y=150 src='character.png' columns=8 rows=4 frame=0)
@@ -224,19 +229,19 @@ Sprite(x=400 y=200 src='coins.png' columns=6 rows=1 frame=2)
 
 ## Container Objects
 
-### Empty / Container / _
+### Container / Cont / Empty / _
 
 Creates an empty container object that can hold and manage multiple child objects.
 
-#### Parameters
+#### Parameters for Container
 
 - id, x, y, width, height, alpha, etc (basic shape parameters) 
 
-#### Note
+#### Container Children
 
 - Children added to the container will inherit the container's position, rotation, and scale
 
-#### Example
+#### Example: Container
 
 ```script
 Empty(id='menu' x=400 y=300
@@ -254,9 +259,9 @@ Container(id='card' x=200 y=150
 )
 ```
 
-### State Object
+## State Objects
 
-The State object is a special type of object used to create state machine and behavior tree constructs.  See the [State Machine Tutorial](./state-machines.md) for more details.
+The State object is a special type of object used to create state machine and behavior tree constructs.  State objects are added to other types of objects to create a state machine construct.  See the [State Machine Tutorial](./state-machines.md) for more details.
 
 ## Special Notation
 
@@ -264,7 +269,7 @@ The State object is a special type of object used to create state machine and be
 
 An existing object in a scene can be referenced by prefixing the object's ID with a question mark.  This is helpful when adding a secondary script to a scene that will modify an existing object.
 
-#### Example
+#### Example: ?
 
 ```script
 ?player(x=0 y=100)
@@ -276,7 +281,7 @@ Objects defined by the Define command (see next section) are called prototypes. 
 
 See the [Prototype tutorial](./prototypes.md) for more details.
 
-#### Example
+#### Example: $
 
 ```script
 $toast(text='hello world' x=0 y=-50)
@@ -316,6 +321,6 @@ $toast(text='hello' y=100)
 $toast(text='goodbye' y=200)
 ```
 
-#### Note
+#### Prototype Definitions
 
 Prototype definitions are not display objects.  They will not appear in the scene until a copy of a prototype is made.

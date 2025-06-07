@@ -2,11 +2,11 @@
 
 A prototype is a script that is used to create one or more copies of an object.  A prototype can be defined as a global variable or it can be an in-line definition.
 
-There are multiple ways to make protoype copies either when a script is paresed or later using an anim.  The [Proto()](./objects.md#prototypes) command and [$ notation](./objects.md#prototype-id) create copies at parse-time.  The [anim](./anims.md#anim--listen) anim and [make](./anims.md#make) anim create copies after the scene has started.
+There are multiple ways to make protoype copies: when a script is parsed or later using an anim.  The [Proto()](./objects.md#prototypes) command and [$ notation](./objects.md#prototype-id) create copies at parse-time.  The [anim's](./anims.md#anim--listen) make property and the [make](./anims.md#make) anim create copies after the scene has started.
 
 ## Proto Command
 
-Prototype copies can be created when a script is parsed using the Proto() command.  This command takes either a global variable ID or a quoted script and makes an object that is added to the current scene.
+Prototype copies can be created when a script is parsed using the [Proto()](./objects.md#prototypes) command.  This command takes either a global variable ID or a quoted script and makes an object that is added to the current scene.
 
 ```script
 // define the prototype
@@ -23,7 +23,7 @@ Define(
 // limits: can't delay the creation or repeat at intervals
 Proto(count=2 script=hello)
 
-// use quotes as a shortcut for text=
+// use quotes as a shortcut for script=
 Proto(count=3 "hello")
 
 // an in-line prototype definition
@@ -31,6 +31,10 @@ Proto(count=3 "hello")
 Proto(count=5 "Oval(move(dy=~100<300 des))")
 
 ```
+
+### Randomness
+
+When using random notation, it is important to understand that the random value is resolved when a script is parsed.  Prototypes work well with randomness because the prototype definition retains the random notation, which is not resolved until the prototype definition is parsed to make one or more copies.  Each copy will have unique random values.
 
 ## $ Notation
 
@@ -51,6 +55,29 @@ Multiple copies can be made by using the * notation with the $ notation.
 // * count notation
 // used to make multiple copies
 $hello*3(y=-100 color=red)
+```
+
+### Overriding Properties
+
+Overriding properties can be confusing because the scripting language uses enclosed proeprties in different ways, depending on the object or anim.  
+
+For example, the Proto command has a count property and a script property which are used to specify the prototype definition and how many copies to make.  When using the $ notation, the prototype id is specified after the $ and the * nottion is used for the count.  That allows the enclosed properties to be passed each prototype copy.
+
+## @ Notation
+
+The @ notation adds one or more anims to the parent object.
+
+```script
+// use the @ notation to add anims to a parent object
+Text(x=-300 "testing" 
+  anim(wait=1000 make="@(update('123'))")
+)
+
+// use the @ notation to add move anims to a parent object over time
+// each move anim has a random y velocity and short duration
+Oval(color=#ac2 x=300
+  make("@(move(dy=~-100<100 dur=500))" count=22 destroy)
+)
 ```
 
 ## The Basic Anim
@@ -107,9 +134,17 @@ Rect(y=500
 )
 ```
 
+Since every anim has the make property, it is easy to chain logic by creating new objects when an anim is done.  The prototype definition can be simple or very complex.  
+
+### Inline Quotes
+
+Be careful with quotes to ensure the same quotes are not used to enclose the inline definition and some of the content within that definition.  Prototpye definitons enclosed by Define do not have that limitation.
+
 ## The Make Anim
 
-The [make](./anims.md#make) anim provides a way to create prototype copies over time, like for particle effects.
+The [make](./anims.md#make) anim provides a way to create prototype copies over time.
+
+The prototyping methods described in the previous sections are create prototype copies at a certain moment in time.  That is useful for chained logic and instantaneous particle effects.  When prototype copies need to be created over time, the make anim provides that functionality.  It can be used for things like particle trails and complex particle effects.
 
 ```script
 // define the prototype
@@ -140,3 +175,20 @@ _(
     )
 )
 ```
+
+## If Anim
+
+The **if** anim can be used to create a prototype based on a decision.
+
+```script
+
+Def(
+  randomValue=~0<100
+)
+
+Circle(x=-300
+  if (q="randomValue > 75" true="@(lerp(y=100))" false="@(lerp(x=-400))")
+)
+```
+
+The **if** anim can also be used to [change state](/state-machines.md#behavior-tree-construct) as part of a behavior tree construct.

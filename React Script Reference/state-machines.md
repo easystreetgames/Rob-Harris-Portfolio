@@ -6,11 +6,11 @@ The **State** object is a special type of object used to create state machine an
 
 A state machine is a construct that applies certain behavior to an object based on its current state.  When the state changes, the behavior changes.
 
-Every object maintains a list of anims that are updated each animation frame. The State object is an invisible object that defers its anim's effects to its parent object.  Only one of the State objects contained by an object is active at a time. By changing state, a different set of anims will affect the parent object.
+Every object maintains a list of anims that are updated each animation frame. The State object is an invisible object that defers its anim's effects to its parent object.  Only one of the State objects contained by a parent object is active at a time. By changing state, a different set of anims will affect the parent object.
 
 State is changed by setting the state property in the parent object to the ID of the new state. The first state will run by default.  
 
-In this example, notice that the color change is performed once when a state changes, but the rotate action runs indefinitely until the state is changed again.
+In this example, notice that the color change is performed once when a state changes, but the rotate action runs indefinitely until the state is changed again.  Both are important qualities of state machines: transitioning between states and animating in a state until it changes.  In games, it can bring a character to life and give it varied abilites.
 
 ```script
 // state machine construct: rotating rectangle
@@ -116,3 +116,7 @@ Text("normal" id=normal y=250 w=150 bg=#020
     set(in=click.normal local.testobj.status=normal reset)
 )
 ```
+
+### If Anim
+
+The **if** anim has multiple uses including setting state.  The **if** anim can also be used to [make prototypes](./prototypes.md#if-anim).
