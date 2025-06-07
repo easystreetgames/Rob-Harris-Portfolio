@@ -118,7 +118,7 @@ _(
 
 ### Inheriting Basic Properties
 
-Here are two examples of the [lerp](./anims.md#lerp--tween) anim and [move](./anims.md#move) anim inheriting the make property from the basic anim.
+Here are two examples of the [lerp anim](./anims.md#lerp--tween) and [move anim](./anims.md#move) inheriting the make property from the basic anim.
 
 ```script
 // example: lerp anim creating a circle when done
@@ -161,7 +161,7 @@ The **if** anim can also be used to [change state](/state-machines.md#behavior-t
 
 ## The Make Anim
 
-The [make](./anims.md#make) anim provides a way to create prototype copies over time.
+The [make anim](./anims.md#make) provides a way to create prototype copies over time.
 
 The prototyping methods described in the previous sections create prototype copies at a certain moment in time.  That is useful for chained logic and instantaneous particle effects.  When prototype copies need to be created over time, the make anim provides that functionality.  It can be used for things like particle trails and complex particle effects.
 
