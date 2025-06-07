@@ -99,7 +99,7 @@ An object's state can be changed when a condition is met (See the [State Machine
 
 #### Prototypes
 
-A prototype definition can be used to make a copy of the prototype when a condition is met. (See the [Prototypes](/prototypes.md#if-anim) for more details).
+A prototype definition can be used to make a copy of the prototype when a condition is met. (See the [Prototypes](./prototypes.md#if-anim) for more details).
 
 ### Example: if
 

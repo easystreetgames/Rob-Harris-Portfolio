@@ -2,7 +2,7 @@
 
 A prototype is a script that is used to create one or more copies of an object.  A prototype can be defined as a global variable or it can be an in-line definition.
 
-There are multiple ways to make protoype copies: when a script is parsed or later using an anim.  The [Proto()](./objects.md#prototypes) command and [$ notation](./objects.md#prototype-id) create copies at parse-time.  The [anim's](./anims.md#anim--listen) make property and the [make](./anims.md#make) and [if](/anims.md#if--compare) anims create copies after the scene has started.
+There are multiple ways to make protoype copies: when a script is parsed or later using an anim.  The [Proto()](./objects.md#prototypes) command and [$ notation](./objects.md#prototype-id) create copies at parse-time.  The [anim's](./anims.md#anim--listen) make property and the [make](./anims.md#make) and [if](./anims.md#if--compare) anims create copies after the scene has started.
 
 ## Proto Command
 
@@ -157,7 +157,7 @@ Circle(x=-300
 )
 ```
 
-The **if** anim can also be used to [change state](/state-machines.md#behavior-tree-construct) as part of a behavior tree construct.
+The **if** anim can also be used to [change state](./state-machines.md#behavior-tree-construct) as part of a behavior tree construct.
 
 ## The Make Anim
 
