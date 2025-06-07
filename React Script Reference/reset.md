@@ -116,7 +116,7 @@ Text(text='' y=-100
 
 ## If Anim
 
-The [if anim](/anims.md#if--compare) can check for a condition, change a state, then continue to check the condition.
+The [if anim](./anims.md#if--compare) can check for a condition, change a state, then continue to check the condition.
 
 ```script
 // --- if anim ---
