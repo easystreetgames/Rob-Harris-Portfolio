@@ -63,6 +63,42 @@ Overriding properties can be confusing because the scripting language uses enclo
 
 For example, the Proto command has a count property and a script property which are used to specify the prototype definition and how many copies to make.  When using the $ notation, the prototype id is specified after the $ and the * nottion is used for the count.  That allows the enclosed properties to be applied to each prototype copy.
 
+## Prototype Syntax
+
+The @ syntax can also be used to describe how a new prototype copy should be initialized.  There are 3 options relating to the object that created the prototype:
+
+- no parent
+- no parent; use creator's transform (position and rotation)
+- child of creator
+
+```script
+  // Create instance with no parent
+  anim(make=hello)
+
+  // Create instance with no parent that uses creator’s transform
+  anim(make=@hello)
+
+  //Create instance that is a child of the creator
+  anim(make='@(hello)')
+```
+
+The same notation can be used with the $ or in-line definitions.
+
+```script
+
+  // Create instance with no parent
+  anim(make="$hello(text='no parent')")
+  anim(make="Rect(x=-300 move(dx=100 des))")
+
+  // Create instance with no parent that uses creator’s transform
+  anim(make="@$hello('no parent, just transform')")
+  anim(make="@Rect(x=-300 move(dx=100 des))")
+
+  //Create instance that is a child of the creator
+  anim(make="@($hello('child'))")
+  anim(make="@(Rect(x=-300 move(dx=100 des)))")
+```
+
 ## @ Notation
 
 The @ notation adds one or more anims to a parent object.
@@ -142,22 +178,22 @@ Since every anim has the make property, it is easy to chain logic by creating ne
 
 Be careful with quotes to ensure the same quotes are not used to enclose the inline definition and some of the content within that definition.  Prototpye definitons enclosed by Define do not have that limitation.
 
-## If Anim
+## Compare Anim
 
-The **if** anim can be used to create a prototype based on a decision.
+The **compare** anim can be used to create a prototype based on a decision.
 
 ```script
-
 Def(
-  randomValue=~0<100
+  limit=75
 )
 
 Circle(x=-300
-  if (q="randomValue > 75" true="@(lerp(y=100))" false="@(lerp(x=-400))")
+  set(randomValue=~0<100)
+  compare(num key1=randomValue ">" key2=limit true="@(lerp(y=100))" false="@(lerp(x=-400))")
 )
 ```
 
-The **if** anim can also be used to [change state](./state-machines.md#behavior-tree-construct) as part of a behavior tree construct.
+The **compare** anim can also be used to [change state](./state-machines.md#behavior-tree-construct) as part of a behavior tree construct.
 
 ## The Make Anim
 
