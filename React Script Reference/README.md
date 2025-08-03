@@ -2,7 +2,7 @@
 
 ## Sandbox
 
-<a href="http://worldflyingclub.com/react/parser/index.html" target="ESG Sandbox">ESG Sandbox</a>
+<a href="http://worldflyingclub.com/react/parser/index.html" target="_blank" rel="noopener">ESG Sandbox</a>
 
 ## Object and Anim Reference
 
