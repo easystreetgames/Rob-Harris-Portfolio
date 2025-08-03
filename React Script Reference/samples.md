@@ -290,3 +290,179 @@ Cont(
   make(wait=100 "@textObj" count=10 interval=1000)
 )
 ```
+
+## Kinetic Art: Skinny Red Rectangle
+
+This script makes a rotating skinny red rectangle that shifts to black as it rotates.
+
+```script
+Rect(color=#ff0000 w=5 h=500
+  lerp(dur=9000 color=#000000 angle=180 out=drawDone ease=in-out)
+)
+```
+
+## Kinetic Art: Shrinking Green Oval
+
+This script makes a shrinking green oval that shifts to black as it shrinks.
+
+```script
+Oval(color=#00ff00 scale=12 
+  lerp(scale=1 color=#000000 dur=8000 ease=in-out)
+)
+```
+
+## Kinetic Art: Canvas Object
+
+This script makes a Canvas object containing a rectangle and an oval.  A Canvas object is used to create an image source.  It is not displayed in the scene.  To view the image canvas in the scene, an Image object is created with its source set to the canvas object.  More than one Image object can use the canvas object as a source.
+
+```script
+// create image source (not displayed in scene)
+Canvas(id=testCanvas w=900 h=900 color=#004
+  // paint a rectangle onto the canvas
+  Rect(color=#ff0000 w=5 h=500)
+
+  // paint an oval onto the canvas
+  Oval(color=#00ff00 scale=12)
+)
+
+// full-size image using canvas image source
+Image(src=testCanvas w=900 h=900 x=100)
+
+// small image using same image source
+Image(src=testCanvas w=200 h=200 x=-500)
+```
+
+## Kinetic Art: Canvas With Rotating Rectangle
+
+This script rotates the rectangle enclosed in the Canvas object.  Each frame as the rectangle rotates, it is drawn onto the canvas, resulting in a spirographic effect.  Once the rectangle is done rotating, the canvas object can be removed.  It can still be used as an image source by other objects.
+
+```script
+// create image source (not displayed in scene)
+Canvas(id=testCanvas w=900 h=900 color=#004
+  // paint a moving, dimming rectangle onto the canvas
+  Rect(color=#ff0000 w=5 h=500
+    lerp(dur=9000 color=#000000 angle=180 out=drawDone ease=in-out)
+  )
+
+  // the canvas can be removed from the scene once the animation is done
+  // the final canvas image will remain available for use in the scene
+  destroy(in=drawDone)
+)
+
+// full-size image using canvas image source
+Image(src=testCanvas w=900 h=900)
+
+// small image using same image source
+Image(src=testCanvas w=100 h=100 x=-540)
+```
+
+## Kinetic Art: Canvas Visibility
+
+This script toggles the image canvas visibility.  When the canvas is invisible, it does not draw its child objects.  This allows the animation to start and stop drawing.
+
+```script
+// create image source (not displayed in scene)
+Canvas(id=testCanvas w=900 h=900 color=#004
+  // paint a moving rectangle onto the canvas
+  Rect(color=#ff0000 w=5 h=500
+    lerp(dur=9000 color=#000000 angle=180 out=drawDone ease=in-out)
+  )
+
+  // the canvas can be removed from the scene once the animation is done
+  // the final canvas image will remain available for use in the scene
+  destroy(in=drawDone)
+)
+
+// full-size image using canvas image source
+Image(src=testCanvas w=900 h=900)
+
+// small image using same image source
+Image(src=testCanvas w=100 h=100 x=-540)
+
+Def(
+  _(id=blink
+    // make the canvas object visible
+    update(target=testCanvas visible=true)
+
+    // after a delay, make the canvas object invisible
+    update(wait=30 target=testCanvas visible=false)
+
+    // after a delay, loop by destroying this object and creating another
+    make(wait=200 "blink" des)
+  )
+)
+// start the blink logic
+$blink()
+```
+
+## Kinetic Art: Canvas With Multiple Animating Objects
+
+This script rotates the rectangle while shrinking the oval, producing an interesting swirling design.  The small image is rotated to produce a unique effect.
+
+```script
+// create image source (not displayed in scene)
+Canvas(id=testCanvas w=900 h=900 color=#004
+  // paint a moving rectangle onto the canvas
+  Rect(color=#ff0000 w=5 h=500
+    lerp(dur=9000 color=#000000 angle=180 out=drawDone ease=in-out)
+  )
+
+  // paint a shrinking ovalonto the canvas at the same time
+  Oval(color=#00ff00 scale=12 
+    lerp(scale=1 color=#000000 dur=8000 ease=in-out)
+  )
+
+  // the canvas can be removed from the scene once the animation is done
+  // the final canvas image will remain available for use in the scene
+  destroy(in=drawDone)
+)
+
+// full-size image using canvas image source
+Image(src=testCanvas w=900 h=900)
+
+// small image using same source
+Image(src=testCanvas w=100 h=100 x=-540
+  rotate(inf vel=10)
+)
+```
+
+## Kinetic Art: Final Swirl Pattern
+
+This script combines all elements from the proceeding samples to produce a final kinetic art piece.
+
+```script
+// create image source (not displayed in scene)
+Canvas(id=testCanvas w=900 h=900 color=#004
+  // paint a moving rectangle onto the canvas
+  Rect(color=#ff0000 w=5 h=500
+    lerp(dur=9000 color=#000000 angle=180 out=drawDone ease=in-out)
+  )
+
+  // paint a shrinking ovalonto the canvas at the same time
+  Oval(color=#00ff00 scale=12 
+    lerp(scale=1 color=#000000 dur=8000 ease=in-out)
+  )
+
+  // the canvas can be removed from the scene once the animation is done
+  // the final canvas image will remain available for use in the scene
+  destroy(in=drawDone)
+)
+
+// full-size image using canvas image source
+Image(src=testCanvas w=900 h=900)
+
+// small image using same source
+Image(src=testCanvas w=150 h=150 x=-340 y=250
+  rotate(inf vel=10)
+)
+
+// visibility toggle logic
+Def(
+  _(id=blink
+    update(target=testCanvas visible=true)
+    update(wait=30 target=testCanvas visible=false)
+    make(wait=200 "blink" des)
+  )
+)
+$blink()
+```
