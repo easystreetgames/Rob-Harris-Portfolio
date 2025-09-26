@@ -379,20 +379,25 @@ Image(src=testCanvas w=900 h=900)
 // small image using same image source
 Image(src=testCanvas w=100 h=100 x=-540)
 
-Def(
-  _(id=blink
+// state machine to toggle visibility
+_(
+  // destroy state machine when drawing is done
+  destroy(in=drawDone)
+  
+  State(id=vis
     // make the canvas object visible
     update(target=testCanvas visible=true)
+    // delay before switching state
+    update(wait=30 state=invis)
+  )
 
-    // after a delay, make the canvas object invisible
-    update(wait=30 target=testCanvas visible=false)
-
-    // after a delay, loop by destroying this object and creating another
-    make(wait=200 "blink" des)
+  State(id=invis
+    // make the canvas object invisible
+    update(target=testCanvas visible=false)
+    // delay before switching state
+    update(wait=200 state=vis)
   )
 )
-// start the blink logic
-$blink()
 ```
 
 ## Kinetic Art: Canvas With Multiple Animating Objects
@@ -456,13 +461,23 @@ Image(src=testCanvas w=150 h=150 x=-340 y=250
   rotate(inf vel=10)
 )
 
-// visibility toggle logic
-Def(
-  _(id=blink
+// state machine to toggle visibility
+_(
+  // destroy state machine when drawing is done
+  destroy(in=drawDone)
+
+  State(id=vis
+    // make the canvas object visible
     update(target=testCanvas visible=true)
-    update(wait=30 target=testCanvas visible=false)
-    make(wait=200 "blink" des)
+    // delay before switching state
+    update(wait=30 state=invis)
+  )
+
+  State(id=invis
+    // make the canvas object invisible
+    update(target=testCanvas visible=false)
+    // delay before switching state
+    update(wait=200 state=vis)
   )
 )
-$blink()
 ```
