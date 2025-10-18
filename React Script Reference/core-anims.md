@@ -2,20 +2,29 @@
 
 Core anims perform fundamental actions, usually affecting the [display object](./objects.md) they are attached to. All anims inherit the capabilities of the base anim in addition to their specific function. Multiple anims can be attached to a display object to give it their combined capabilities.
 
+## Basic Anim Parameters
+
+**Every animation inherits these parameters from the base anim class.** Rather than repeating them for each anim below, they are documented once here:
+
+- **wait** (int): Delay in milliseconds before the animation starts
+- **block / b** (boolean): If true, blocks subsequent animations until completed
+- **destroy / des** (boolean): If true, destroys the object when animation completes
+- **in / inEvent** (string): Event that triggers this animation to begin
+- **out / outEvent** (string): Event to trigger when animation completes
+- **make / then / proto** (string): ID of [prototype](./prototypes.md) to create upon completion - see [prototypes tutorial](./prototypes.md)
+- **reset** (boolean): If true, restarts the animation when it completes - see [reset tutorial](./reset.md)
+- **removeSelf / remove / rem** (boolean): If true, removes the animation when it completes (default: true)
+- **set** (key=value pairs): Set global variables upon completion
+
+For detailed philosophy on how these properties enable powerful combinations, see [animation-philosophy.md](./animation-philosophy.md).
+
 ## anim / listen
 
 The base class for all anims. Provides core animation functionality and parameters common to all animation types.
 
 ### Parameters for anim
 
-- wait (int): delay in milliseconds before the animation starts
-- block / b (boolean): if true, blocks subsequent animations until completed
-- destroy / des (boolean): if true, destroys the object when animation completes
-- in / inEvent (string): event that triggers this animation to begin
-- out / outEvent (string): event to trigger when animation completes
-- make / then / proto (string): ID of [prototype](./objects.md#prototypes) to create upon completion
-- reset (boolean): if true, restarts the animation when it completes (see [tutorial](./reset.md))
-- removeSelf / remove / rem (boolean): if true, removes the animation when it completes (default: true)
+All [basic anim parameters](#basic-anim-parameters) listed above.
 
 ### Example: anim
 
@@ -33,7 +42,7 @@ Destroys a target object.
 
 ### Parameters for destroy
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](#basic-anim-parameters)
 - target (string): the ID of the object to destroy
 
 ### Example: destroy
@@ -54,11 +63,11 @@ Empty(
 
 ## lerp / tween
 
-Linearly interpolates (transitions) object properties from their current values to specified target values over time.
+Linearly interpolates (transitions) object properties from their current values to specified target values over time. See [animation-recipes.md](./animation-recipes.md) for practical combination patterns.
 
 ### Parameters: lerp
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](#basic-anim-parameters)
 - duration / dur (int): duration in milliseconds for the interpolation
 - easing / e / ease (string): easing function to use ("in", "out", "in-out")
 - x (int): target x-coordinate
@@ -94,7 +103,7 @@ Loads content from a text file and processes it as a script. Can optionally stor
 
 ### Parameters for load
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](#basic-anim-parameters)
 - path / file (string): path to the text file to load
 - clear (boolean): if true, clears all objects before processing the loaded script
 - key (string): if provided, stores the loaded content in a variable with this key instead of processing it
@@ -112,11 +121,11 @@ load(file='data/settings.txt' key='settings')
 
 ## make
 
-Parses a prototype definition to create a new object or objects. There are a variety of options during cloning. The count parameter specifies how many times to repeat the cloning operation.
+Parses a prototype definition to create a new object or objects over time. See [prototypes.md](./prototypes.md#the-make-anim) for detailed usage.
 
 ### Parameters for make
 
-- wait, in, out, block, destroy, reset, make (basic anim properties)
+- All [basic anim parameters](#basic-anim-parameters)
 - script (string): id of prototype to parse
 - count (int): number of times to parse (default is 1)
 - interval / int (int): delay in milliseconds before repeating
@@ -142,7 +151,7 @@ Moves an object based on x and y velocity.
 
 ### Parameters for move
 
-- wait, in, out, block, destroy, reset, make (basic anim properties)
+- All [basic anim parameters](#basic-anim-parameters)
 - vx (int): x velocity (pixels per second)
 - vy (int): y velocity (pixels per second)
 - velocity / vel / v (int): direction velocity (based on current rotation)
@@ -169,7 +178,7 @@ Rotates an object based on rotation velocity.
 
 ### Parameters for rotate
 
-- wait, in, out, block, destroy, reset, make (basic anim properties)
+- All [basic anim parameters](#basic-anim-parameters)
 - velocity / vel / v (int): rotation velocity (degrees per second)
 - duration / dur (int): duration in milliseconds
 
@@ -183,11 +192,11 @@ Rect(
 
 ## set
 
-Set one or more [variables](./objects.md#variables) when the anim becomes active There is also a [Define()](./objects.md#define) command used to set variables when the script is parsed (see [Object Reference document](./objects.md#define)).
+Set one or more variables when the anim becomes active. See [prefixes.md](./prefixes.md) for variable notation. There is also a [Define()](./objects.md#define) command used to set variables when the script is parsed.
 
 ### Parameters for set
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](#basic-anim-parameters)
 - key=value separated by spaces - associates a key with a value to be used as a variable
 
 ### Example: set
@@ -202,7 +211,7 @@ Anchors objects to specific positions on the canvas edges or corners. Executes i
 
 ### Parameters for anchor
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](#basic-anim-parameters)
 - anchor / to / position / pos / text (string): anchor position - 'left', 'right', 'top', 'bottom', 'center', 'topleft', 'topright', 'bottomleft', 'bottomright'
 - offsetX / ox / dx (int): horizontal offset from the anchor position in pixels (default: 0)
 - offsetY / oy / dy (int): vertical offset from the anchor position in pixels (default: 0)
@@ -232,7 +241,7 @@ Loads a CSV atlas file and cuts an ImageObject's source into separate frame imag
 
 ### Parameters for atlas
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](#basic-anim-parameters)
 - csv / atlas / key / text (string): key name of the CSV data to use for cutting frames
 
 ### Example: atlas
@@ -264,11 +273,11 @@ $mainAtlas()
 
 ## hover
 
-Handles mouse hover interactions on sprite objects with visual feedback through frame changes. Can specify different frames for hover states, mouse down, and normal states.
+Handles mouse hover interactions on sprite objects with visual feedback through frame changes. Can specify different frames for hover states, mouse down, and normal states. See [animation-recipes.md](./animation-recipes.md#ui--interaction-recipes) for UI interaction patterns.
 
 ### Parameters for hover
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](#basic-anim-parameters)
 - target / t / text (string): ID of target object to apply hover effects to (default: self)
 - trueFrame / true (int): frame to display when hovering (default: 0)
 - falseFrame / false (int): frame to display when not hovering (default: 0)
@@ -304,7 +313,7 @@ Animates objects along predefined paths using linear or bezier curve interpolati
 
 ### Parameters for lerppath
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](#basic-anim-parameters)
 - duration / dur (int): duration in milliseconds for path traversal
 - easing / e / ease (string): easing function ("in", "out", "in-out")
 - count (int): number of times to repeat the path animation
@@ -349,11 +358,11 @@ Circle(
 
 ## fetch
 
-Fetches values from global or local variables and sets object properties. Useful for transferring data from variables to object properties for dynamic updates.
+Fetches values from global or local variables and sets object properties. Useful for transferring data from variables to object properties for dynamic updates. See [prefixes.md](./prefixes.md) for variable notation.
 
 ### Parameters for fetch
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](#basic-anim-parameters)
 - target / t / text (string): ID of target object to modify (default: self)
 - key / keyIn (string): name of the variable to fetch the value from
 - property / prop (string): name of the object property to set
@@ -388,11 +397,11 @@ Circle(
 
 ## local
 
-Sets local variables on objects instead of global variables. Local variables are scoped to the specific object and can be accessed by that object's animations using the local parameter.
+Sets local variables on objects instead of global variables. Local variables are scoped to the specific object and can be accessed by that object's animations using the local parameter. See [prefixes.md](./prefixes.md) for local variable notation.
 
 ### Parameters for local
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](#basic-anim-parameters)
 - key=value pairs: any number of key-value assignments for local variables
 
 ### Example: local
@@ -432,11 +441,11 @@ $player2(y=200)
 
 ## update
 
-Sets one or more object properties. This anim can update any object property such as x, y, width, height, alpha, rotation, src, etc.
+Sets one or more object properties instantly. This anim can update any object property such as x, y, width, height, alpha, rotation, src, etc. See [reset.md](./reset.md) for continuous update patterns.
 
 ### Parameters for update
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](#basic-anim-parameters)
 - target (string): optional target object (default is self)
 - key=value separated by spaces - sets object properties
 

@@ -19,22 +19,26 @@ There is also one special command that is not an object:
 
 - Define command
 
+## Common Object Parameters
+
+**All display objects** (shapes, text, images, containers) share these base parameters:
+
+- **id** (string): The object's unique identifier
+- **x** (int): Horizontal position of the object's center
+- **y** (int): Vertical position of the object's center
+- **width / w** (int): Width of the object in pixels
+- **height / h** (int): Height of the object in pixels
+- **alpha** (float): Transparency value (0-1, where 0 is invisible and 1 is fully opaque)
+- **visible / vis** (boolean): Visibility
+- **rotation / rot / angle** (float): Rotation in degrees
+- **scale** (float): Uniform scale multiplier
+- **strokeWidth** (int): Width of the outline in pixels
+- **strokeColor / stroke** (string): Color of the outline
+- **state** (string): Object ID of a state contained by this object (see [State Machine Tutorial](./state-machines.md))
+
+Rather than repeating these for each object type below, only object-specific parameters are listed.
+
 ## Shape Objects
-
-All shapes share basic parameters to configure the shape.
-
-### Shared Parameters
-
-- id (string): the object's ID
-- x (int): horizontal position of the object's center
-- y (int): vertical position of the object's center
-- width / w (int): width of the object in pixels
-- height / h (int): height of the object in pixels
-- alpha (float): transparency value (0-1, where 0 is invisible and 1 is fully opaque)
-- visible / vis (boolean): visibility
-- strokeWidth (int): width of the outline in pixels
-- strokeColor / stroke (string): color of the outline
-- state (string): object ID of a state contained by this object (see [State Machine Tutorial](./state-machines.md) for details)
 
 ### Rectangle / Rect
 
@@ -42,9 +46,8 @@ Creates a rectangular shape with configurable properties.
 
 #### Parameters for Rectangle
 
-- id, x, y, width, height, alpha, etc (basic shape parameters) 
+- All [common object parameters](#common-object-parameters)
 - color (string): fill color of the rectangle
-- rotation (float): rotation in degrees
 
 #### Example: Rectangle
 
@@ -66,10 +69,9 @@ Creates a square shape with configurable properties.
 
 #### Parameters for Square
 
-- id, x, y, width, height, alpha, etc (basic shape parameters) 
-- color (string): fill color of the rectangle
-- rotation (float): rotation in degrees
-- size (int): width and height of the square
+- All [common object parameters](#common-object-parameters)
+- color (string): fill color of the square
+- size (int): width and height of the square (overrides width/height)
 
 #### Example: Square
 
@@ -87,9 +89,8 @@ Creates an elliptical shape with configurable properties.
 
 #### Parameters for Ellipse
 
-- id, x, y, width, height, alpha, etc (basic shape parameters) 
+- All [common object parameters](#common-object-parameters)
 - color (string): fill color of the ellipse
-- rotation (float): rotation in degrees
 
 #### Example: Ellipse
 
@@ -111,10 +112,9 @@ Creates a circle shape with configurable properties.
 
 #### Parameters for Circle
 
-- id, x, y, width, height, alpha, etc (basic shape parameters) 
-- color (string): fill color of the rectangle
-- rotation (float): rotation in degrees
-- radius (int): width x 2 and height x 2 of the circle
+- All [common object parameters](#common-object-parameters)
+- color (string): fill color of the circle
+- radius (int): radius of the circle (overrides width/height)
 
 #### Example: Circle
 
@@ -134,9 +134,8 @@ Creates a text object with customizable content, appearance, and background opti
 
 #### Parameters for Text
 
-- id, x, y, width, height, alpha, etc (basic shape parameters) 
+- All [common object parameters](#common-object-parameters)
 - color (string): text color
-- rotation (float): rotation in degrees
 - text / txt / msg / content (string): the text content to display
 - size / sz (int): font size in pixels (default: 30)
 - font (string): font family name (default: "Arial")
@@ -178,8 +177,7 @@ Creates an image object that displays images loaded from a specified source.
 
 #### Parameters for Image
 
-- id, x, y, width, height, alpha, etc (basic shape parameters) 
-- rotation (float): rotation in degrees
+- All [common object parameters](#common-object-parameters)
 - src / source (string): key of the image to display (default: "esg-icon")
 
 #### Natural Dimensions
@@ -206,8 +204,7 @@ Creates a sprite object that can display frames from a sprite sheet or animated 
 
 #### Parameters for Sprite
 
-- id, x, y, width, height, alpha, etc (basic shape parameters) 
-- rotation (float): rotation in degrees
+- All [common object parameters](#common-object-parameters)
 - src (string): key of the sprite sheet image (default: "esg-icon")
 - frame / index / idx (int): current frame to display (default: 0)
 - columns / cols (int): number of columns in the sprite sheet (default: 1)
@@ -235,7 +232,7 @@ Creates an empty container object that can hold and manage multiple child object
 
 #### Parameters for Container
 
-- id, x, y, width, height, alpha, etc (basic shape parameters) 
+- All [common object parameters](#common-object-parameters) 
 
 #### Container Children
 

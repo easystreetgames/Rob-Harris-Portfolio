@@ -11,6 +11,8 @@
 
 ## Tutorials
 
+* [Animation Philosophy](https://github.com/easystreetgames/Rob-Harris-Portfolio/blob/main/React%20Script%20Reference/animation-philosophy.md) - Core concepts and animation alchemy
+* [Animation Recipes](https://github.com/easystreetgames/Rob-Harris-Portfolio/blob/main/React%20Script%20Reference/animation-recipes.md) - Practical combination patterns
 * [The Reset Property](https://github.com/easystreetgames/Rob-Harris-Portfolio/blob/main/React%20Script%20Reference/reset.md)
 * [Prototypes](https://github.com/easystreetgames/Rob-Harris-Portfolio/blob/main/React%20Script%20Reference/prototypes.md)
 * [Compare Anim](https://github.com/easystreetgames/Rob-Harris-Portfolio/blob/main/React%20Script%20Reference/compare-anim.md)

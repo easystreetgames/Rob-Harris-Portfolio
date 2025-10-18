@@ -2,13 +2,15 @@
 
 Extra anims provide advanced functionality for browser interaction, file operations, and specialized behaviors.
 
+**Note:** All anims inherit [basic anim parameters](./core-anims.md#basic-anim-parameters) (wait, in, out, block, destroy, reset, make, set) which are not repeated in each section below.
+
 ## browse
 
 Opens a URL in a new browser window or tab. Can optionally create a window with custom text content, clear content, or close a previously opened window.
 
 ### Parameters for browse
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 - path / url (string): URL to open in the browser
 - target / t (string): target window name (default: '_blank')
 - features (string): window features configuration string
@@ -51,7 +53,7 @@ Separates text content into individual characters or words, creating multiple ob
 
 ### Parameters for separate
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 - proto / prototype (string): ID of the prototype to create for each separated element
 - mode (string): separation mode - 'chars' for individual characters, 'word' for words
 - interval / int (int): delay in milliseconds between creating each element
@@ -106,7 +108,7 @@ Assertion testing for object properties. Verifies that object properties match e
 
 ### Parameters for assert
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 - property=value pairs: properties to test with their expected values
 - report (boolean): if true, logs the assertion result to console
 
@@ -136,7 +138,7 @@ Downloads data as files to the user's computer. Can download text content, varia
 
 ### Parameters for download
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 - text (string): direct text content to download
 - key (string): variable name containing content to download
 - csv (string): CSV data key to download as CSV file
@@ -174,7 +176,7 @@ Creates boundary detection and collision handling for moving objects. Objects ca
 
 ### Parameters for fence
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 - target / text (string): ID of the fence boundary object (usually a Rect)
 - inside (boolean): if true, keeps object inside the fence; if false, keeps object outside
 - bounce (boolean): if true, reverses direction when hitting boundary
@@ -215,7 +217,7 @@ Formats text or code strings for display or processing. Takes text content and a
 
 ### Parameters for format
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 - key (string): variable name containing the text to format
 - result (string): variable name to store the formatted result
 
@@ -240,7 +242,7 @@ Scans images for pixels matching specific colors and extracts coordinate data. U
 
 ### Parameters for pixel
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 - color (string): hex color code to scan for (e.g., 'ff0000' for red)
 - csv (string): CSV data key to store the pixel coordinates
 - threshold (int): color matching tolerance (0-255, default: 0)
@@ -270,7 +272,7 @@ Creates pixelation effects by converting images into individual pixel objects. E
 
 ### Parameters for pixelate
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 - size (int): size of each pixel block (default: 1)
 - proto / prototype (string): ID of prototype to create for each pixel
 - interval / int (int): delay between creating each pixel object
@@ -312,7 +314,7 @@ Saves data or state information to persistent storage. Can save variables, objec
 
 ### Parameters for save
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 
 ### Example: save
 
@@ -329,7 +331,7 @@ Stores and retrieves values using browser localStorage or sessionStorage. Provid
 
 ### Parameters for cookie
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 - session (boolean): if true, uses sessionStorage instead of localStorage
 - key=value pairs: data to store in browser storage
 
@@ -363,7 +365,7 @@ Card deck operations for creating, shuffling, and managing playing cards. Useful
 
 ### Parameters for deck
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 - numCards / cards (int): number of cards in the deck
 - startingIndex / start (int): starting index for card numbering
 - cardBack / back (string): image source for card backs
@@ -383,7 +385,7 @@ Compares two strings and finds differences between them. Useful for text compari
 
 ### Parameters for diff
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 - keyIn / key (string): first string variable to compare
 - keyIn2 / key2 (string): second string variable to compare
 - keyOut (string): variable to store the difference result
@@ -409,7 +411,7 @@ Code validation and linting functionality. Checks code syntax and style accordin
 
 ### Parameters for lint
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 
 ### Example: lint
 
@@ -426,7 +428,7 @@ Scrolling controls for managing viewport and camera movement. Provides smooth sc
 
 ### Parameters for scroll
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 
 ### Example: scroll
 
@@ -443,7 +445,7 @@ Moves objects to the top layer in the z-order, ensuring they appear above other 
 
 ### Parameters for top
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 
 ### Example: top
 

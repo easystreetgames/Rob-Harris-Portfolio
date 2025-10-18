@@ -2,52 +2,26 @@
 
 Utility anims provide conditional logic, comparison operations, and other utility functions for script control flow and data manipulation.
 
+**Note:** All anims inherit [basic anim parameters](./core-anims.md#basic-anim-parameters) (wait, in, out, block, destroy, reset, make, set) which are not repeated in each section below.
+
 ## if / compare
 
-Performs a conditional test and executes different actions based on the result. It can test variable values using various comparison operators.
+The `if` and `compare` anims perform conditional tests and execute different actions based on results.
 
-### Parameters for if
+**For complete documentation including advanced features, lifecycle behavior, and detailed examples, see [compare-anim.md](./compare-anim.md).**
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+### Parameters for if (simplified syntax)
+
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 - target (string): optional target object (default is self)
 - test / q (string): the condition to test, can include operators (=, !=, <, >, <=, >=)
 - true / yes (string): state to set or prototype to make if the test is true
 - false / no (string): state to set or prototype to make if the test is false
 - local (boolean): if true, tests a local variable on the target object rather than a global variable
 
-#### Blocking
+### Parameters for compare (advanced syntax)
 
-The **if** anim can be used as a blocking anim until a condition is met.
-
-#### Change State
-
-An object's state can be changed when a condition is met (See the [State Machine Tutorial](./state-machines.md) for more details).
-
-#### Prototypes
-
-A prototype definition can be used to make a copy of the prototype when a condition is met. (See the [Prototypes](./prototypes.md#if-anim) for more details).
-
-### Example: if
-
-```script
-if(test='score=100' true='$win()' false='$continue()')
-```
-
-```script
-if(test='health<20' true='damaged' false='normal')
-```
-
-```script
-if(target='player' test='lives<=0' true='$gameOver()')
-```
-
-## compare
-
-Compares two variables using various operators and executes different actions based on the result. Unlike the `if` anim which uses a single test string, `compare` separates the comparison operands into distinct parameters.
-
-### Parameters for compare
-
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 - target (string): optional target object (default is self)
 - key / key1 (string): first variable to compare
 - key2 / match (string): second variable to compare
@@ -59,19 +33,21 @@ Compares two variables using various operators and executes different actions ba
 - local (boolean): if true, compares local variables on the target object rather than global variables
 - repeat / rep / inf / infinity / infinite (boolean): if true, keeps repeating the comparison
 
+### Example: if
+
+```script
+if(test='score=100' true='$win()' false='$continue()')
+if(test='health<20' true='damaged' false='normal')
+```
+
 ### Example: compare
 
 ```script
 compare(key='score' key2='highScore' operator='>' true='newRecord' false='normalScore')
-```
-
-```script
 compare(key='health' match='maxHealth' operator='=' true='fullHealth' numeric)
 ```
 
-```script
-compare(target='enemy' key='state' key2='aggressive' true='$attack()' local)
-```
+See [compare-anim.md](./compare-anim.md), [state-machines.md](./state-machines.md), and [animation-recipes.md](./animation-recipes.md) for usage patterns.
 
 ## arrange
 
@@ -79,7 +55,7 @@ Arranges child objects within a container (EmptyObject) in either horizontal or 
 
 ### Parameters for arrange
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 - direction / dir / orientation / layout (string): layout direction - 'horizontal', 'vertical', 'h', or 'v' (default: 'horizontal')
 - gap / spacing / distance / padding (number): space between objects in pixels (default: 10)
 
@@ -121,7 +97,7 @@ Adds values to global or local variables. Can perform numeric addition for count
 
 ### Parameters for add
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 - key / text (string): name of the variable to modify
 - value / v (string/number): value to add (numeric for addition, string for concatenation)
 - string / str (string): force string concatenation mode
@@ -173,7 +149,7 @@ Multiplies global or local variables by a numeric value. Useful for scaling coun
 
 ### Parameters for mult
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 - key (string): name of the variable to modify
 - value / v (number): value to multiply by
 
@@ -199,7 +175,7 @@ Plays audio files with control over looping, muting, and destruction. Can play s
 
 ### Parameters for audio
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 - path / file / src / text (string): path to the audio file to play
 - loop (boolean): if true, loops the audio indefinitely
 - mute / muteKey (boolean): if true, mutes the audio
@@ -241,7 +217,7 @@ Aligns objects so their edges almost touch, creating precise positioning relatio
 
 ### Parameters for dovetail
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 - target / t (string): ID of the target object to align against
 - anchor / to / position / pos / text (string): anchor position relative to target - 'top', 'bottom', 'left', 'right'
 - gap / spacing / distance / offset (int): space between objects in pixels (default: 0)
@@ -289,7 +265,7 @@ Calls registered TypeScript functions from scripts. Functions must be pre-regist
 
 ### Parameters for call
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 - function / func / fn / text (string): name of the registered function to call
 - parameters / params / args (string): comma-separated parameters to pass to the function
 
@@ -322,7 +298,7 @@ Filters and processes text strings in variables using various filter types. Can 
 
 ### Parameters for filter
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 - keyIn / key (string): name of the variable containing the text to filter
 - filter / type (string): type of filter to apply - 'json', 'paragraph', 'memory', 'variables', 'cookie', 'session', 'time'
 - keyOut (string): name of the variable to store the filtered result (default: 'json')
@@ -371,7 +347,7 @@ Outputs log messages, warnings, and errors to the browser console. Supports diff
 
 ### Parameters for log
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 - error / err (boolean): if true, logs as error level
 - warning / warn (boolean): if true, logs as warning level
 - log / t / text (string): message text to log
@@ -407,7 +383,7 @@ Preloads assets and resources for later use. Helps improve performance by loadin
 
 ### Parameters for preload
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 
 ### Example: preload
 
@@ -424,7 +400,7 @@ Generates status reports and system information. Useful for debugging and monito
 
 ### Parameters for report
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 
 ### Example: report
 

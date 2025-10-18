@@ -2,13 +2,15 @@
 
 LLM anims provide AI-powered functionality for prompts, embeddings, validation, and RAG (Retrieval Augmented Generation) operations.
 
+**Note:** All anims inherit [basic anim parameters](./core-anims.md#basic-anim-parameters) (wait, in, out, block, destroy, reset, make, set) which are not repeated in each section below.
+
 ## prompt / llm
 
 Executes LLM prompts and handles responses. Supports multiple AI providers (Anthropic, Gemini, Ollama) with conversation management, model selection, and response handling through global variables.
 
 ### Parameters for prompt
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 - prompt / p / text (string): the prompt text to send to the LLM
 - response / res (string): variable name to store the response (default: 'response')
 - model (string): specific model name to use (overrides default)
@@ -70,7 +72,7 @@ Performs Retrieval Augmented Generation by finding relevant memories and using t
 
 ### Parameters for rag
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 - prompt / p / text (string): the prompt text to send to the LLM with memory context
 
 ### Example: rag
@@ -108,7 +110,7 @@ Manages memory graphs and vector embeddings for AI knowledge storage. Creates en
 
 ### Parameters for embedding
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 - text / txt (string): text content to process for memory storage
 - find (string): search term to find related memories
 - related (string): find memories related to a specific entity
@@ -169,7 +171,7 @@ AI-powered testing functionality that uses language models to generate, validate
 
 ### Parameters for test
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 
 ### Example: test
 
@@ -186,7 +188,7 @@ AI validation using language models to check data, code, or content against spec
 
 ### Parameters for validate
 
-- wait, in, out, block, destroy, reset, make (basic anim parameters)
+- All [basic anim parameters](./core-anims.md#basic-anim-parameters)
 - keyIn / key (string): variable containing data to validate
 - validation / type (string): type of validation to perform
 - errorMsg / error (string): custom error message for validation failures

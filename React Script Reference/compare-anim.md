@@ -3,6 +3,7 @@
 The **compare** anim performs conditional comparisons between two variables and responds based on the result. It can compare strings or numbers using various operators, and can trigger different behaviors depending on whether the comparison evaluates to true or false.
 
 ## Command ID
+
 `compare`
 
 ## Core Functionality
@@ -37,10 +38,12 @@ The compare anim's completion behavior follows these rules:
 ### Supported Operators
 
 **String comparisons:**
+
 - `=` or `==` - Equals
 - `!=` - Not equals
 
 **Numeric comparisons:**
+
 - `=` or `==` - Equals
 - `!=` - Not equals
 - `<` - Less than
@@ -62,20 +65,25 @@ The compare anim's completion behavior follows these rules:
 |----------|---------|------|-------------|
 | `local` | - | boolean | Use local variables instead of global |
 | `repeat` | `rep`, `inf`, `infinity`, `infinite` | boolean | Keep evaluating every frame |
+| `literal` | `lit` | boolean | Treat key2 as a literal value instead of a variable name |
 
 ## Response Actions
 
 The `true` and `false` properties determine what happens when the comparison succeeds or fails:
 
 ### 1. State Change
+
 If the target object has states, set the state by name or index:
+
 ```script
 compare(key1=status key2=ready true=0 false=1)
 compare(key1=mode key2=active true=running false=idle)
 ```
 
 ### 2. Prototype Creation
+
 Create an object from a prototype definition:
+
 ```script
 compare(key1=score ">=" key2=100
   true="Text('You win!' color=green)"
@@ -84,7 +92,9 @@ compare(key1=score ">=" key2=100
 ```
 
 ### 3. Prototype with Transform
+
 Prefix with `+` to force prototype creation even if target has states:
+
 ```script
 compare(key1=health "<=" key2=0
   true="+Circle(color=red move(dy=-100 des))"
@@ -92,7 +102,9 @@ compare(key1=health "<=" key2=0
 ```
 
 ### 4. Add Anim to Target
+
 Use [@ notation](./prototypes.md#-notation) to add an anim to the parent object:
+
 ```script
 compare(key1=power key2=max
   true="@(update(text='FULL'))"
@@ -214,41 +226,50 @@ $tester()
 ## Usage Patterns
 
 ### One-Shot Test
+
 ```script
-compare(key1=value key2=threshold ">"
-  true="Circle(color=green)"
-  destroy
+Def(
+  value=4
+  threshold=3
+)
+_(
+  compare(key1=value ">" key2=threshold
+    true="Circle(color=green)"
+  )
 )
 ```
+
 Evaluates once, creates object, then completes.
 
 ### Continuous Monitor
+
 ```script
-compare(key1=status key2=active
+compare(key1=status literal key2=active
   true=running false=idle
   repeat
 )
 ```
+
 Evaluates every frame, switches states as needed, never completes.
 
 ### Behavior Tree Branch
+
 ```script
 State(id=patrol
-  compare(key1=distance key2=alertRange "<" true=alert)
+  compare(key1=distance "<" key2=alertRange true=alert)
   move(patrol pattern...)
 )
 ```
+
 Evaluates continuously, switches state when condition met, then completes.
 
 ### Waiting for Condition
+
 ```script
-compare(key1=ready key2=yes true="+StartGame()")
+compare(key1=ready literal key2=true true="+startGame")
 ```
+
 Stays alive until condition is true, then creates prototype and completes.
-
-## Comparison with If Anim
-
-The [if anim](./anims.md#if--compare) is similar but has a wait property that delays evaluation. The compare anim evaluates immediately and can repeat continuously. Use compare for state machines and continuous monitoring; use if for delayed conditional logic.
 
 ## Local vs Global Variables
 
@@ -257,13 +278,25 @@ The [if anim](./anims.md#if--compare) is similar but has a wait property that de
 
 ```script
 // Global comparison
-compare(key1=score key2=highScore ">")
+compare(key1=score ">" key2=highScore)
 
 // Local comparison
-compare(key1=health key2=maxHealth local)
+compare(local key1=health key2=maxHealth)
+```
 
-// Mixed: compare local variable to global constant
-compare(key1=status key2=globalStatus local)
+## Literal Values
+
+By default, `key2` is treated as a variable name. Use the `literal` flag to compare against a literal string or number value:
+
+```script
+// Compare variable to literal string
+compare(key1=name literal key2=Player1)
+
+// Compare variable to literal number (string comparison)
+compare(key1=status literal key2=active)
+
+// Compare variable to another variable (default behavior)
+compare(key1=name key2=playerName)
 ```
 
 ## Notes
@@ -276,6 +309,7 @@ compare(key1=status key2=globalStatus local)
 - Prototype creation with `+` prefix bypasses state setting
 - Use `repeat` for frame-by-frame monitoring
 - Numeric comparisons parse strings to integers
+- Use `literal` flag to compare against constant values instead of variable names
 
 ## See Also
 
