@@ -1,4 +1,4 @@
-# Intusic Game Kit
+# Game Kit
 
 The game kit is used to create music-based games.  It provides a basic scene, several demo scenes, and resources needed to construct a simple game synced with music.  The kit is intended to work well in a decoupled workflow that separates engineering, design, and art into layers that can operate independently.
 
